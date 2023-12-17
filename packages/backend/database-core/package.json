@@ -1,0 +1,25 @@
+{
+  "name": "database-core",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "esbuild src/index.ts --bundle --platform=node --outfile=dist/index.js",
+    "eslint": "eslint ."
+  },
+  "keywords": [],
+  "type": "module",
+  "author": "",
+  "license": "ISC",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:0.0.0",
+    "esbuild": "0.19.9",
+    "typescript": "5.3.3"
+  },
+  "dependencies": {
+    "logger": "workspace:1.0.0",
+    "neo4j-driver": "5.15.0"
+  }
+}

@@ -1,0 +1,8 @@
+{
+    "esm": "true",
+    "experimentalSpecifierResolution": "true",
+    "watch": [
+        "src",
+        "../../packages/backend/**/*.ts"
+    ]
+}
