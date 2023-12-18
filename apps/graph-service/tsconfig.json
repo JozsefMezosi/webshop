@@ -1,0 +1,14 @@
+{
+  "extends": "@repo/typescript-config/backend-base.json",
+  "ts-node": {
+    "files": true,
+    "esm": true,
+    "experimentalSpecifierResolution": "node"
+  },
+  "include": [
+    "**/*",
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

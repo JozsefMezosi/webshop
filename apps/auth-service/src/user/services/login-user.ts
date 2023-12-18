@@ -25,6 +25,7 @@ export const loginUser = async ({ email, password }: LoginUserDto) => {
     );
   }
   return jwt.sign({ email, roles: user.roles }, process.env.JWT_SECRET, {
+    subject: email,
     expiresIn: "3h",
   });
 };
