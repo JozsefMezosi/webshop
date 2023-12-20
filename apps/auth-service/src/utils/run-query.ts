@@ -1,7 +1,5 @@
 import { QueryResult, RecordShape, runDatabaseQuery } from "database-core";
-import { getDatabase } from "./get-database";
-
-const getSession = async () => (await getDatabase()).session();
+import { getSession } from "./get-session";
 
 export const runQuery = async <
   K extends RecordShape,
