@@ -1,31 +1,12 @@
-import { findUserByEmail } from "../queries/find-user-by-email";
 import { LoginUserDto } from "../model/user.model";
 import { validateLoginUserData } from "../validation/login/validate-login-data";
-import { ApiError } from "../../model/api-error";
-import { HTTP_STATUS_CODES } from "../../model/http-status-codes";
-import { compare } from "bcrypt";
-import jwt from "jsonwebtoken";
+import { createAuthAndRefreshTokens } from "../utils/create-auth-and-refresh-tokens";
+import { getUser } from "../utils/get-user";
 
-export const loginUser = async ({ email, password }: LoginUserDto) => {
-  validateLoginUserData({ email, password });
-  const user = await findUserByEmail(email);
-  if (!user) {
-    throw new ApiError(
-      "Email or password doesn't match!",
-      HTTP_STATUS_CODES["Bad Request"]
-    );
-  }
+export const loginUser = async (loginDto: LoginUserDto) => {
+  validateLoginUserData(loginDto);
 
-  const isPasswordCorrect = await compare(password, user.password);
+  const user = await getUser(loginDto);
 
-  if (!isPasswordCorrect) {
-    throw new ApiError(
-      "Email or password doesn't match!",
-      HTTP_STATUS_CODES["Bad Request"]
-    );
-  }
-  return jwt.sign({ email, roles: user.roles }, process.env.JWT_SECRET, {
-    subject: email,
-    expiresIn: "3h",
-  });
+  return createAuthAndRefreshTokens(user);
 };

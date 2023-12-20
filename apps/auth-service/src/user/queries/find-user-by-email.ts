@@ -1,7 +1,9 @@
 import { UserData } from "database-core";
 import { runQuery } from "../../utils/run-query";
 
-export const findUserByEmail = async (email: string) =>
+export const findUserByEmail = async (
+  email: string
+): Promise<UserData | undefined> =>
   (
     await runQuery<{
       user: {

@@ -6,3 +6,4 @@ export const userController = new UserController();
 
 userRouter.post("/login", userController.login);
 userRouter.post("/register", userController.register);
+userRouter.post("/refresh", userController.refreshToken);
