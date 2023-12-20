@@ -9,7 +9,6 @@ import { refreshToken } from "./services/refresh-token";
 export class UserController {
   async login(req: Request, res: Response) {
     const tokens = await loginUser(req.body);
-    console.log({ tokens });
 
     res.json(tokens);
   }
