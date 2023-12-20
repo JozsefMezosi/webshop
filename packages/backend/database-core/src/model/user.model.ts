@@ -1,4 +1,6 @@
-type UserRoles = "user" | "admin";
+export const UserRoles = { user: "user", admin: "admin" } as const;
+
+export type UserRoles = keyof typeof UserRoles;
 
 export interface UserData {
   email: string;
