@@ -1,5 +1,4 @@
 export const orderTypeDefs = `#graphql
-
     enum OrderStatus {
         NEW
         IN_PROGRESS
@@ -15,18 +14,28 @@ export const orderTypeDefs = `#graphql
         lastModified: DateTime @timestamp(operations: [CREATE, UPDATE])
         status: OrderStatus! @coalesce(value: NEW)
         customer: User! @relationship(type: "ordered_by", direction: IN)
-        items: [Product!]! @relationship(type: "in_order", direction: OUT)
+        items: [Product!]! @relationship(type: "in_order", direction: IN)
     }
 
+ 
 
     type Query {
-        getAllQuery(orderStatuses: [OrderStatus!]!): [Order!]!
-            @cypher(statement: """
+        getAllOrder(orderStatuses: [OrderStatus!]!, offset: Int!, limit: Int!): [Order!]!
+        @cypher(statement: """
             MATCH (o:Order) 
             WHERE o.status IN $orderStatuses
             return o as orders
+            SKIP $offset
+            LIMIT $limit
             """,
             columnName: "orders") @authentication(jwt: { roles_INCLUDES: "admin" }) 
+        
+        getOrderById(orderId: ID!): Order
+        @cypher(statement: """
+            MATCH (order:Order {id: $orderId}) 
+            return order
+            """,
+            columnName: "order") @authentication(jwt: { roles_INCLUDES: "admin" }) 
     }
 
     type Mutation {

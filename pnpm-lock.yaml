@@ -91,6 +91,8 @@ importers:
   apps/graph-service:
     specifiers:
       '@apollo/server': 4.9.5
+      '@graphql-tools/schema': 10.0.2
+      '@graphql-tools/utils': 10.0.11
       '@neo4j/graphql': 4.4.4
       '@repo/eslint-config': workspace:*
       '@repo/typescript-config': workspace:0.0.0
@@ -106,6 +108,8 @@ importers:
       zod: 3.22.4
     dependencies:
       '@apollo/server': 4.9.5_graphql@16.8.1
+      '@graphql-tools/schema': 10.0.2_graphql@16.8.1
+      '@graphql-tools/utils': 10.0.11_graphql@16.8.1
       '@neo4j/graphql': 4.4.4_2cvieehw7drbkw3cbaz6h4uf74
       database-core: link:../../packages/backend/database-core
       environment-variable-handler: link:../../packages/backend/environment-variable-handler

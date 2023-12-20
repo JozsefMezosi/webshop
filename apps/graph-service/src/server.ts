@@ -25,7 +25,7 @@ try {
     databaseUser: process.env.DATABASE_USER,
   });
 
-  const resolvers = {
+  const resolvers: Neo4jGraphQL["resolvers"] = {
     Object: ObjectScalarType,
   };
 
@@ -48,7 +48,9 @@ try {
   await neoSchema.assertIndexesAndConstraints({ options: { create: true } });
 
   const { url } = await startStandaloneServer(server, {
-    context: async ({ req }) => ({ req, token: req.headers.authorization }),
+    context: async ({ req }) => ({
+      token: req.headers.authorization,
+    }),
     listen: { port: parseInt(process.env.PORT) },
   });
 
