@@ -1,13 +1,14 @@
 import { ApolloServer } from "@apollo/server";
 import { startStandaloneServer } from "@apollo/server/standalone";
 import { Neo4jGraphQL } from "@neo4j/graphql";
-import { getDatabaseDriver } from "database-core";
 import { getEnvironmentVariables } from "environment-variable-handler";
 import { logger } from "logger";
-import { userTypeDefs } from "./schemas/user.schema";
-import { productTypeDefs } from "./schemas/product.schema";
+import { userTypeDefs } from "./user/user.schema";
+import { productTypeDefs } from "./product/product.schema";
 import { ObjectScalarType } from "./model/object.scalar";
-import { orderTypeDefs } from "./schemas/order.schema";
+import { orderTypeDefs } from "./order/order.schema";
+import { getDriver } from "./utils/get-driver";
+import { OrderResolvers } from "./order/order.resolvers";
 
 try {
   getEnvironmentVariables();
@@ -19,14 +20,11 @@ try {
     }
     extend schema @authentication`;
 
-  const driver = await getDatabaseDriver({
-    connectionString: process.env.CONNECTION_STRING,
-    databasePassword: process.env.DATABASE_PASSWORD,
-    databaseUser: process.env.DATABASE_USER,
-  });
+  const driver = await getDriver();
 
   const resolvers: Neo4jGraphQL["resolvers"] = {
     Object: ObjectScalarType,
+    ...OrderResolvers,
   };
 
   const neoSchema = new Neo4jGraphQL({

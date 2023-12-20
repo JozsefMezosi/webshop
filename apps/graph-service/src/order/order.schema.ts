@@ -1,3 +1,9 @@
+import { Neo4jGraphQL } from "@neo4j/graphql";
+import { getDatabaseDriver } from "database-core";
+import { GraphQLError, GraphQLResolveInfo } from "graphql";
+import { Session } from "neo4j-driver";
+import { getDriver } from "../utils/get-driver.js";
+
 export const orderTypeDefs = `#graphql
     enum OrderStatus {
         NEW
@@ -53,5 +59,7 @@ export const orderTypeDefs = `#graphql
                 """,
                 columnName: "order"
             )
+
+        MoveOrderToNextStatus(orderId: ID!): Order
     }
 `;
