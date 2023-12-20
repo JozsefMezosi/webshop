@@ -14,7 +14,8 @@ export const userTypeDefs = `#graphql
         email: String!  @settable(onCreate: false, onUpdate: false)
         firstName: String! @settable(onCreate: false, onUpdate: false)
         lastName: String! @settable(onCreate: false, onUpdate: false)
-        addresses: [Address!]! @relationship(type: "HAS_ADDRESS", direction: OUT) @settable(onCreate: false, onUpdate: true)
+        addresses: [Address!]! @relationship(type: "has_address", direction: OUT) @settable(onCreate: false, onUpdate: true) 
         roles: [String!]! @settable(onCreate: false, onUpdate: false)
+        orders: [Order!]! @relationship(type: "ordered_by", direction: OUT)
     }
 `;
