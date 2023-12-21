@@ -6,7 +6,8 @@
   "scripts": {
     "dev:server": "nodemon src/server.ts",
     "eslint": "eslint .",
-    "build": "node ./esbuild.js"
+    "build": "node ./esbuild.js",
+    "start": "node dist/server.cjs"
   },
   "devDependencies": {
     "@types/bcrypt": "5.0.2",

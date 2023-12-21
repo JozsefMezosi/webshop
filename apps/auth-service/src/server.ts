@@ -22,5 +22,3 @@ app.use(handleNotFound);
 
 app.use(handleServerError);
 app.listen(port, () => logger.info(`Listening on ${host}:${port}`));
-
-export default app;
