@@ -1,4 +1,8 @@
 import { ApolloServer } from "@apollo/server";
+import {
+  ApolloServerPluginLandingPageLocalDefault,
+  ApolloServerPluginLandingPageProductionDefault,
+} from "@apollo/server/plugin/landingPage/default";
 import { startStandaloneServer } from "@apollo/server/standalone";
 import { Neo4jGraphQL } from "@neo4j/graphql";
 import { getEnvironmentVariables } from "environment-variable-handler";
@@ -42,6 +46,14 @@ const main = async () => {
 
     const server = new ApolloServer({
       schema: await neoSchema.getSchema(),
+      plugins: [
+        // Install a landing page plugin based on NODE_ENV
+        process.env.NODE_ENV === "production"
+          ? ApolloServerPluginLandingPageProductionDefault({
+              footer: false,
+            })
+          : ApolloServerPluginLandingPageLocalDefault({ footer: false }),
+      ],
     });
 
     await neoSchema.assertIndexesAndConstraints({ options: { create: true } });
