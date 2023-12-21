@@ -1,7 +1,5 @@
 import { UserRoles } from "database-core/src/model/user.model";
 import { GraphQLError } from "graphql";
-import { int } from "neo4j-driver";
-
 interface ValidateRolesProps {
   userRoles?: UserRoles[];
   requiredRoles: UserRoles[];

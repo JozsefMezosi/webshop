@@ -1,9 +1,3 @@
-import { Neo4jGraphQL } from "@neo4j/graphql";
-import { getDatabaseDriver } from "database-core";
-import { GraphQLError, GraphQLResolveInfo } from "graphql";
-import { Session } from "neo4j-driver";
-import { getDriver } from "../utils/get-driver.js";
-
 export const orderTypeDefs = `#graphql
     enum OrderStatus {
         NEW
@@ -49,7 +43,7 @@ export const orderTypeDefs = `#graphql
             @cypher(
                 statement: """
                 MATCH (u:User {email: $jwt.sub})
-                CREATE (order:Order { id: randomUUID(), created: datetime(), lastModified: datetime(), status: \"NEW\"})
+                CREATE (order:Order { id: randomUUID(), created: datetime(), lastModified: datetime(), status: 'NEW'})
                 MERGE (order)<-[:ordered_by]-(u)
                 WITH order
                 MATCH (p:Product)

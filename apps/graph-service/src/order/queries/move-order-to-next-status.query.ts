@@ -1,3 +1,4 @@
+import { logger } from "logger";
 import { getDriver } from "../../utils/get-driver.js";
 
 export const moveOrderToNextStatusQuery = async (orderId: string) => {
@@ -23,6 +24,7 @@ export const moveOrderToNextStatusQuery = async (orderId: string) => {
 
     return order;
   } catch (error) {
+    logger.error(error);
     throw error;
   } finally {
     session.close();

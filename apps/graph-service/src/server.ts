@@ -10,49 +10,53 @@ import { orderTypeDefs } from "./order/order.schema";
 import { getDriver } from "./utils/get-driver";
 import { OrderResolvers } from "./order/order.resolvers";
 
-try {
-  getEnvironmentVariables();
+const main = async () => {
+  try {
+    getEnvironmentVariables();
 
-  const typeDefs = `#graphql
+    const typeDefs = `#graphql
     scalar Object
     type JWT @jwt {
         roles: [String!]!
     }
     extend schema @authentication`;
 
-  const driver = await getDriver();
+    const driver = await getDriver();
 
-  const resolvers: Neo4jGraphQL["resolvers"] = {
-    Object: ObjectScalarType,
-    ...OrderResolvers,
-  };
+    const resolvers: Neo4jGraphQL["resolvers"] = {
+      Object: ObjectScalarType,
+      ...OrderResolvers,
+    };
 
-  const neoSchema = new Neo4jGraphQL({
-    typeDefs: [typeDefs, userTypeDefs, productTypeDefs, orderTypeDefs],
-    driver,
-    resolvers,
-    features: {
-      authorization: {
-        verify: true,
-        key: process.env.JWT_SECRET,
+    const neoSchema = new Neo4jGraphQL({
+      typeDefs: [typeDefs, userTypeDefs, productTypeDefs, orderTypeDefs],
+      driver,
+      resolvers,
+      features: {
+        authorization: {
+          verify: true,
+          key: process.env.JWT_SECRET,
+        },
       },
-    },
-  });
+    });
 
-  const server = new ApolloServer({
-    schema: await neoSchema.getSchema(),
-  });
+    const server = new ApolloServer({
+      schema: await neoSchema.getSchema(),
+    });
 
-  await neoSchema.assertIndexesAndConstraints({ options: { create: true } });
+    await neoSchema.assertIndexesAndConstraints({ options: { create: true } });
 
-  const { url } = await startStandaloneServer(server, {
-    context: async ({ req }) => ({
-      token: req.headers.authorization,
-    }),
-    listen: { port: parseInt(process.env.PORT) },
-  });
+    const { url } = await startStandaloneServer(server, {
+      context: async ({ req }) => ({
+        token: req.headers.authorization,
+      }),
+      listen: { port: parseInt(process.env.PORT) },
+    });
 
-  logger.info(`Server ready at ${url}`);
-} catch (error) {
-  logger.error(error);
-}
+    logger.info(`Server ready at ${url}`);
+  } catch (error) {
+    logger.error(error);
+  }
+};
+
+main();
