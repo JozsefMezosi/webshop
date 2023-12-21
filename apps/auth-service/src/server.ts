@@ -8,7 +8,7 @@ import { logRequestInfo } from "./utils/log-request-info";
 
 getEnvironmentVariables();
 
-const app = express();
+const app: ReturnType<typeof express> = express();
 app.use(json());
 
 const port = process.env.PORT;
@@ -22,3 +22,5 @@ app.use(handleNotFound);
 
 app.use(handleServerError);
 app.listen(port, () => logger.info(`Listening on ${host}:${port}`));
+
+export default app;
