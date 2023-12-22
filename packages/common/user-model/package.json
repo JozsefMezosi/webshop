@@ -1,5 +1,5 @@
 {
-  "name": "logger",
+  "name": "user-model",
   "version": "1.0.0",
   "description": "",
   "main": "src/index.ts",
@@ -13,9 +13,7 @@
   "license": "ISC",
   "devDependencies": {
     "@repo/typescript-config": "workspace:0.0.0",
+    "@repo/eslint-config": "workspace:*",
     "esbuild": "0.19.9"
-  },
-  "dependencies": {
-    "winston": "3.11.0"
   }
 }

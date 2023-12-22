@@ -1,6 +1,4 @@
-export const UserRoles = { user: "user", admin: "admin" } as const;
-
-export type UserRoles = keyof typeof UserRoles;
+import { UserRoles } from "./user-roles.model";
 
 export interface UserData {
   email: string;
@@ -16,3 +14,7 @@ export interface UserData {
     houseNumber: string;
   }>;
 }
+
+export type UserLoginDto = Pick<UserData, "email" | "password">;
+export type RegisterUserDto = Omit<UserData, "address">;
+export type LoginUserDto = Pick<UserData, "email" | "password">;

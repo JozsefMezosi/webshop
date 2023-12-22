@@ -1,9 +1,9 @@
-import { UserData } from "database-core";
+import { UserRoles } from "user-model";
 import { signJwt } from "./sign-jwt";
 
 interface CreateAuthTokenProps {
   email: string;
-  roles: UserData["roles"];
+  roles: UserRoles;
 }
 export const createAuthToken = ({ email, roles }: CreateAuthTokenProps) =>
   signJwt({

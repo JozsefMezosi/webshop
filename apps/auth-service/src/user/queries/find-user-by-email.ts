@@ -1,4 +1,4 @@
-import { UserData } from "database-core";
+import { UserData } from "user-model";
 import { runQuery } from "../../utils/run-query";
 
 export const findUserByEmail = async (

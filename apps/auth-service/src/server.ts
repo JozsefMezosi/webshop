@@ -5,10 +5,12 @@ import { userRouter } from "./user/user.routes";
 import { handleNotFound } from "./utils/handle-not-found";
 import { handleServerError } from "./utils/handle-server-error";
 import { logRequestInfo } from "./utils/log-request-info";
+import cors from "cors";
 
 getEnvironmentVariables();
 
 const app: ReturnType<typeof express> = express();
+app.use(cors());
 app.use(json());
 
 const port = process.env.PORT;

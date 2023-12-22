@@ -1,10 +1,10 @@
-import { UserData } from "database-core";
+import { UserRoles } from "user-model";
 import { createAuthToken } from "./create-auth-token";
 import { signJwt } from "./sign-jwt";
 
 interface CreateAuthAndRefreshTokensProps {
   email: string;
-  roles: UserData["roles"];
+  roles: UserRoles;
 }
 export const createAuthAndRefreshTokens = ({
   email,

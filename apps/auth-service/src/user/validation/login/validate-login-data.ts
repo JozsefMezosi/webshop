@@ -1,6 +1,7 @@
+import { LoginUserDto } from "user-model";
 import { ApiError } from "../../../model/api-error";
 import { HTTP_STATUS_CODES } from "../../../model/http-status-codes";
-import { LoginUserDto } from "../../model/user.model";
+
 import { validateLoginUserDtoSchema } from "./login-validation.schema";
 
 export const validateLoginUserData = (data: LoginUserDto) => {

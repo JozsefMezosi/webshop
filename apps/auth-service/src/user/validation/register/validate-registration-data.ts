@@ -1,4 +1,4 @@
-import { RegisterUserDto } from "../../model/user.model";
+import { RegisterUserDto } from "user-model";
 import { validateUserRegisterDataSchema } from "./register-validation.schema";
 
 export const validateRegistrationData = async (userData: RegisterUserDto) =>

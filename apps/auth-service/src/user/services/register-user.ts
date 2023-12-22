@@ -1,4 +1,4 @@
-import { RegisterUserDto } from "../model/user.model";
+import { RegisterUserDto } from "user-model";
 import { createUser } from "../queries/create-user";
 import { validateRegistrationData } from "../validation/register/validate-registration-data";
 import { hash } from "bcrypt";

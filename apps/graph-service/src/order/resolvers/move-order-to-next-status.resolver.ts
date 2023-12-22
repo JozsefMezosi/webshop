@@ -1,7 +1,6 @@
-import { GraphQLError } from "graphql";
 import { moveOrderToNextStatusQuery } from "../queries/move-order-to-next-status.query";
 import { validateRoles } from "../../utils/validate-roles";
-import { UserRoles } from "database-core/src/model/user.model";
+import { UserRoles } from "user-model";
 
 export const MoveOrderToNextStatus = async (
   _: never,
