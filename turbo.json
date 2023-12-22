@@ -3,6 +3,10 @@
   "globalDependencies": [
     "**/.env.*local"
   ],
+  "globalEnv": [
+    "NEXT_PUBLIC_AUTH_SERVICE_URL",
+    "NEXTAUTH_SECRET"
+  ],
   "pipeline": {
     "build": {
       "dependsOn": [
