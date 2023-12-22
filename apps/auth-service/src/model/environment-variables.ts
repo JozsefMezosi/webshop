@@ -8,8 +8,8 @@ export const environmentVariablesModel = z.object({
   PORT: z.string().min(1),
   HOST: z.string().min(1),
   JWT_SECRET: z.string().min(24),
-  JWT_EXP: z.string().regex(expRegex),
-  JWT_REFRESH_TOKEN_EXP: z.string().regex(expRegex),
+  JWT_EXP_IN_SECONDS: z.string().regex(expRegex),
+  JWT_REFRESH_TOKEN_EXP_IN_SECONDS: z.string().regex(expRegex),
 });
 
 checkEnvironmentVariables(environmentVariablesModel);

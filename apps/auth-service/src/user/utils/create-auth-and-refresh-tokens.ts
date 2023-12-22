@@ -1,4 +1,4 @@
-import { UserRoles } from "user-model";
+import { LoginUserResult, UserRoles } from "user-model";
 import { createAuthToken } from "./create-auth-token";
 import { signJwt } from "./sign-jwt";
 
@@ -9,16 +9,19 @@ interface CreateAuthAndRefreshTokensProps {
 export const createAuthAndRefreshTokens = ({
   email,
   roles,
-}: CreateAuthAndRefreshTokensProps) => {
+}: CreateAuthAndRefreshTokensProps): LoginUserResult["tokens"] => {
   const token = createAuthToken({ email, roles });
   const refreshToken = signJwt({
     payload: { email },
     subject: email,
-    expiresIn: process.env.JWT_EXP,
+    expiresIn: process.env.JWT_EXP_IN_SECONDS,
   });
 
   return {
-    token,
-    refreshToken,
+    token: { value: token, exp: parseInt(process.env.JWT_EXP_IN_SECONDS) },
+    refreshToken: {
+      value: refreshToken,
+      exp: parseInt(process.env.JWT_REFRESH_TOKEN_EXP_IN_SECONDS),
+    },
   };
 };

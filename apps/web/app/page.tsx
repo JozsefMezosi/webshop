@@ -1,3 +1,5 @@
+import { cookies } from "next/headers";
 export default function Page(): JSX.Element {
-  return <h1>Home</h1>;
+  const cookieStore = cookies();
+  return <h1>{cookieStore.get("user-first-name")?.value}</h1>;
 }
