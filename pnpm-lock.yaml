@@ -115,7 +115,7 @@ importers:
       '@emotion/react': 11.11.1
       '@emotion/styled': 11.11.0
       '@form/components': workspace:1.0.0
-      '@frontend/asd': workspace:*
+      '@frontend/authentication-view': workspace:*
       '@next/eslint-plugin-next': 14.0.2
       '@repo/eslint-config': workspace:*
       '@repo/typescript-config': workspace:*
@@ -143,7 +143,7 @@ importers:
       '@emotion/react': 11.11.1_akgelr6b34ghs4njbbtjaykm7q
       '@emotion/styled': 11.11.0_oj4tmp6wntquaunsi4efcy3z7i
       '@form/components': link:../../packages/frontend/form-components
-      '@frontend/asd': link:../../packages/frontend/asd
+      '@frontend/authentication-view': link:../../packages/frontend/authentication-view
       axios: 1.6.2
       next: 14.0.3_2sxiyfzeap2fgw7t7svnurc6pi
       next-auth: 4.24.5_pvgaconotzu4vdk37yty4okb7y
@@ -257,13 +257,34 @@ importers:
   packages/configs/typescript-config:
     specifiers: {}
 
-  packages/frontend/asd:
+  packages/frontend/authentication-view:
     specifiers:
       '@repo/eslint-config': workspace:*
       '@repo/typescript-config': workspace:*
+      '@types/node': 20.10.5
+      '@types/react': 17.0.2
+      '@types/react-dom': 17.0.2
+      autoprefixer: 10.4.16
+      postcss: 8.4.32
+      react: 18.2.0
+      react-dom: 18.2.0
+      sass: 1.69.5
+      tailwind: 4.0.0
+      typescript: 5.3.3
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
     devDependencies:
       '@repo/eslint-config': link:../../configs/eslint-config
       '@repo/typescript-config': link:../../configs/typescript-config
+      '@types/node': 20.10.5
+      '@types/react': 17.0.2
+      '@types/react-dom': 17.0.2
+      autoprefixer: 10.4.16_postcss@8.4.32
+      postcss: 8.4.32
+      sass: 1.69.5
+      tailwind: 4.0.0
+      typescript: 5.3.3
 
   packages/frontend/form-components:
     specifiers:
@@ -273,12 +294,10 @@ importers:
       '@repo/typescript-config': workspace:*
       '@tailwind/config': workspace:1.0.0
       '@turbo/gen': 1.10.12
-      '@types/eslint': 8.44.7
       '@types/node': 20.5.2
       '@types/react': 17.0.2
       '@types/react-dom': 17.0.2
       autoprefixer: 10.4.16
-      eslint: 8.53.0
       postcss: 8.4.32
       react: 18.2.0
       react-dom: 18.2.0
@@ -297,12 +316,10 @@ importers:
       '@repo/typescript-config': link:../../configs/typescript-config
       '@tailwind/config': link:../../configs/tailwind-config
       '@turbo/gen': 1.10.12_s622kdlbc2ptrdk3apfk2klfle
-      '@types/eslint': 8.44.7
       '@types/node': 20.5.2
       '@types/react': 17.0.2
       '@types/react-dom': 17.0.2
       autoprefixer: 10.4.16_postcss@8.4.32
-      eslint: 8.53.0
       postcss: 8.4.32
       sass: 1.69.5
       tailwind: 4.0.0

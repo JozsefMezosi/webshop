@@ -9,6 +9,7 @@ import { addProjectToWebApp } from "../utils/add-project-to-web-app/add-project-
 import { join } from "path";
 import { execSync } from "child_process";
 import { createIndexFile } from "../utils/create-index-file";
+import { addThirdPartyDependencies } from "../utils/add-thrid-party-dependencies";
 
 export const createProject: PlopTypes.CustomActionFunction = async (
   _answers
@@ -33,6 +34,8 @@ export const createProject: PlopTypes.CustomActionFunction = async (
   createIndexFile(projectPath);
 
   console.log("Running pnpm install...");
+
+  addThirdPartyDependencies({ projectPath, ...answers });
   execSync(`pnpm install`);
   return "Project created successfully!";
 };
