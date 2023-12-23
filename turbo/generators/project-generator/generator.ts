@@ -5,7 +5,7 @@ import { projectTypes } from "./model/project-type.model";
 import { projectNameValidator } from "./utils/project-name-validator";
 
 export const projectGenerator = (plop: PlopTypes.NodePlopAPI) =>
-  plop.setGenerator("project-generator", {
+  plop.setGenerator("project", {
     description:
       "Project generator that can generate backend or frontend projects",
     prompts: [
