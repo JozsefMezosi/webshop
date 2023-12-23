@@ -10,7 +10,9 @@ export const generateBasePackageJson = ({
   const packageJson: Record<string, unknown> = {
     name: generateProjectName({ projectName, type }),
     version: "1.0.0",
-    main: "src/index.js",
+    main: "src/index.ts",
+    types: "src/index.ts",
+    type: "module",
     scripts: { eslint: "eslint ." },
     devDependencies: {
       "@repo/eslint-config": "workspace:*",
