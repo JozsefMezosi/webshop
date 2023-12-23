@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "build": "esbuild src/index.ts --bundle --platform=node --outfile=dist/index.js",
+    "typecheck": "tsc --noEmit",
+    "build": "typecheck && esbuild src/index.ts --bundle --platform=node --outfile=dist/index.js",
     "eslint": "eslint ."
   },
   "keywords": [],
