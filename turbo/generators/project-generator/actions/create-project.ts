@@ -8,7 +8,7 @@ import { createPackageJson } from "../utils/package-json/create-package-json";
 import { addProjectToWebApp } from "../utils/add-project-to-web-app/add-project-to-web-app";
 import { join } from "path";
 import { execSync } from "child_process";
-import { createIndexFile } from "../utils/create-index-file";
+import { createIndexFile } from "../utils/create-index-file/create-index-file";
 import { addThirdPartyDependencies } from "../utils/add-thrid-party-dependencies";
 
 export const createProject: PlopTypes.CustomActionFunction = async (
@@ -31,7 +31,7 @@ export const createProject: PlopTypes.CustomActionFunction = async (
 
   addProjectToWebApp(answers);
 
-  createIndexFile(projectPath);
+  createIndexFile(projectPath, type);
 
   console.log("Running pnpm install...");
 
