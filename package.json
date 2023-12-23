@@ -10,8 +10,11 @@
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
+    "@turbo/gen": "1.10.12",
+    "@types/node": "20.10.5",
     "prettier": "3.1.0",
-    "turbo": "latest"
+    "turbo": "latest",
+    "typescript": "5.3.3"
   },
   "packageManager": "pnpm@8.9.0",
   "engines": {

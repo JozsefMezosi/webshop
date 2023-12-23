@@ -6,13 +6,19 @@ importers:
     specifiers:
       '@repo/eslint-config': workspace:*
       '@repo/typescript-config': workspace:*
+      '@turbo/gen': 1.10.12
+      '@types/node': 20.10.5
       prettier: 3.1.0
       turbo: latest
+      typescript: 5.3.3
     devDependencies:
-      '@repo/eslint-config': link:packages/common/eslint-config
-      '@repo/typescript-config': link:packages/common/typescript-config
+      '@repo/eslint-config': link:packages/configs/eslint-config
+      '@repo/typescript-config': link:packages/configs/typescript-config
+      '@turbo/gen': 1.10.12_7ln3lwozyybesesf4lghtaucbi
+      '@types/node': 20.10.5
       prettier: 3.1.0
       turbo: 1.11.2
+      typescript: 5.3.3
 
   apps/auth-service:
     specifiers:
@@ -46,12 +52,12 @@ importers:
       express: 4.18.2
       joi: 17.11.0
       jsonwebtoken: 9.0.2
-      logger: link:../../packages/common/logger
+      logger: link:../../packages/backend/logger
       user-model: link:../../packages/common/user-model
       zod: 3.22.4
     devDependencies:
-      '@repo/eslint-config': link:../../packages/common/eslint-config
-      '@repo/typescript-config': link:../../packages/common/typescript-config
+      '@repo/eslint-config': link:../../packages/configs/eslint-config
+      '@repo/typescript-config': link:../../packages/configs/typescript-config
       '@types/bcrypt': 5.0.2
       '@types/cors': 2.8.17
       '@types/express': 4.17.21
@@ -91,13 +97,13 @@ importers:
       database-core: link:../../packages/backend/database-core
       environment-variable-handler: link:../../packages/backend/environment-variable-handler
       graphql: 16.8.1
-      logger: link:../../packages/common/logger
+      logger: link:../../packages/backend/logger
       neo4j-driver: 5.15.0
       user-model: link:../../packages/common/user-model
       zod: 3.22.4
     devDependencies:
-      '@repo/eslint-config': link:../../packages/common/eslint-config
-      '@repo/typescript-config': link:../../packages/common/typescript-config
+      '@repo/eslint-config': link:../../packages/configs/eslint-config
+      '@repo/typescript-config': link:../../packages/configs/typescript-config
       '@types/node': 20.10.5
       esbuild: 0.19.9
       nodemon: 3.0.2
@@ -109,6 +115,7 @@ importers:
       '@emotion/react': 11.11.1
       '@emotion/styled': 11.11.0
       '@form/components': workspace:1.0.0
+      '@frontend/asd': workspace:*
       '@next/eslint-plugin-next': 14.0.2
       '@repo/eslint-config': workspace:*
       '@repo/typescript-config': workspace:*
@@ -136,6 +143,7 @@ importers:
       '@emotion/react': 11.11.1_akgelr6b34ghs4njbbtjaykm7q
       '@emotion/styled': 11.11.0_oj4tmp6wntquaunsi4efcy3z7i
       '@form/components': link:../../packages/frontend/form-components
+      '@frontend/asd': link:../../packages/frontend/asd
       axios: 1.6.2
       next: 14.0.3_2sxiyfzeap2fgw7t7svnurc6pi
       next-auth: 4.24.5_pvgaconotzu4vdk37yty4okb7y
@@ -146,9 +154,9 @@ importers:
       user-model: link:../../packages/common/user-model
     devDependencies:
       '@next/eslint-plugin-next': 14.0.2
-      '@repo/eslint-config': link:../../packages/common/eslint-config
-      '@repo/typescript-config': link:../../packages/common/typescript-config
-      '@tailwind/config': link:../../packages/frontend/tailwind-config
+      '@repo/eslint-config': link:../../packages/configs/eslint-config
+      '@repo/typescript-config': link:../../packages/configs/typescript-config
+      '@tailwind/config': link:../../packages/configs/tailwind-config
       '@types/eslint': 8.44.7
       '@types/node': 17.0.12
       '@types/react': 17.0.2
@@ -170,11 +178,11 @@ importers:
       neo4j-driver: 5.15.0
       typescript: 5.3.3
     dependencies:
-      logger: link:../../common/logger
+      logger: link:../logger
       neo4j-driver: 5.15.0
     devDependencies:
-      '@repo/eslint-config': link:../../common/eslint-config
-      '@repo/typescript-config': link:../../common/typescript-config
+      '@repo/eslint-config': link:../../configs/eslint-config
+      '@repo/typescript-config': link:../../configs/typescript-config
       esbuild: 0.19.9
       typescript: 5.3.3
 
@@ -190,16 +198,37 @@ importers:
       zod: 3.22.4
     dependencies:
       dotenv: 16.3.1
-      logger: link:../../common/logger
+      logger: link:../logger
       neo4j-driver: 5.15.0
       zod: 3.22.4
     devDependencies:
-      '@repo/eslint-config': link:../../common/eslint-config
-      '@repo/typescript-config': link:../../common/typescript-config
+      '@repo/eslint-config': link:../../configs/eslint-config
+      '@repo/typescript-config': link:../../configs/typescript-config
       esbuild: 0.19.9
       typescript: 5.3.3
 
-  packages/common/eslint-config:
+  packages/backend/logger:
+    specifiers:
+      '@repo/typescript-config': workspace:0.0.0
+      esbuild: 0.19.9
+      winston: 3.11.0
+    dependencies:
+      winston: 3.11.0
+    devDependencies:
+      '@repo/typescript-config': link:../../configs/typescript-config
+      esbuild: 0.19.9
+
+  packages/common/user-model:
+    specifiers:
+      '@repo/eslint-config': workspace:*
+      '@repo/typescript-config': workspace:0.0.0
+      esbuild: 0.19.9
+    devDependencies:
+      '@repo/eslint-config': link:../../configs/eslint-config
+      '@repo/typescript-config': link:../../configs/typescript-config
+      esbuild: 0.19.9
+
+  packages/configs/eslint-config:
     specifiers:
       '@typescript-eslint/eslint-plugin': 6.11.0
       '@typescript-eslint/parser': 6.11.0
@@ -219,29 +248,22 @@ importers:
       eslint-plugin-only-warn: 1.1.0
       typescript: 5.2.2
 
-  packages/common/logger:
+  packages/configs/tailwind-config:
     specifiers:
-      '@repo/typescript-config': workspace:0.0.0
-      esbuild: 0.19.9
-      winston: 3.11.0
-    dependencies:
-      winston: 3.11.0
+      tailwind: 4.0.0
     devDependencies:
-      '@repo/typescript-config': link:../typescript-config
-      esbuild: 0.19.9
+      tailwind: 4.0.0
 
-  packages/common/typescript-config:
+  packages/configs/typescript-config:
     specifiers: {}
 
-  packages/common/user-model:
+  packages/frontend/asd:
     specifiers:
       '@repo/eslint-config': workspace:*
-      '@repo/typescript-config': workspace:0.0.0
-      esbuild: 0.19.9
+      '@repo/typescript-config': workspace:*
     devDependencies:
-      '@repo/eslint-config': link:../eslint-config
-      '@repo/typescript-config': link:../typescript-config
-      esbuild: 0.19.9
+      '@repo/eslint-config': link:../../configs/eslint-config
+      '@repo/typescript-config': link:../../configs/typescript-config
 
   packages/frontend/form-components:
     specifiers:
@@ -271,9 +293,9 @@ importers:
       react-dom: 18.2.0_react@18.2.0
       react-hook-form: 7.49.2_react@18.2.0
     devDependencies:
-      '@repo/eslint-config': link:../../common/eslint-config
-      '@repo/typescript-config': link:../../common/typescript-config
-      '@tailwind/config': link:../tailwind-config
+      '@repo/eslint-config': link:../../configs/eslint-config
+      '@repo/typescript-config': link:../../configs/typescript-config
+      '@tailwind/config': link:../../configs/tailwind-config
       '@turbo/gen': 1.10.12_s622kdlbc2ptrdk3apfk2klfle
       '@types/eslint': 8.44.7
       '@types/node': 20.5.2
@@ -285,12 +307,6 @@ importers:
       sass: 1.69.5
       tailwind: 4.0.0
       typescript: 5.2.2
-
-  packages/frontend/tailwind-config:
-    specifiers:
-      tailwind: 4.0.0
-    devDependencies:
-      tailwind: 4.0.0
 
 packages:
 
@@ -1586,6 +1602,29 @@ packages:
     resolution: {integrity: sha512-vxhUy4J8lyeyinH7Azl1pdd43GJhZH/tP2weN8TntQblOY+A0XbT8DJk1/oCPuOOyg/Ja757rG0CgHcWC8OfMA==}
     dev: true
 
+  /@turbo/gen/1.10.12_7ln3lwozyybesesf4lghtaucbi:
+    resolution: {integrity: sha512-noop5+3MBFsgPQ7O2vQpS6YYiah+ZrOioa4cDDpZceUVsKVXvUHFmC2nEVyKSJZhO/8SLvbDE/esB/MGw5b2tw==}
+    hasBin: true
+    dependencies:
+      chalk: 2.4.2
+      commander: 10.0.1
+      fs-extra: 10.1.0
+      inquirer: 8.2.6
+      minimatch: 9.0.3
+      node-plop: 0.26.3
+      proxy-agent: 6.3.1
+      semver: 7.5.4
+      ts-node: 10.9.2_7ln3lwozyybesesf4lghtaucbi
+      update-check: 1.5.4
+      validate-npm-package-name: 5.0.0
+    transitivePeerDependencies:
+      - '@swc/core'
+      - '@swc/wasm'
+      - '@types/node'
+      - supports-color
+      - typescript
+    dev: true
+
   /@turbo/gen/1.10.12_s622kdlbc2ptrdk3apfk2klfle:
     resolution: {integrity: sha512-noop5+3MBFsgPQ7O2vQpS6YYiah+ZrOioa4cDDpZceUVsKVXvUHFmC2nEVyKSJZhO/8SLvbDE/esB/MGw5b2tw==}
     hasBin: true
@@ -1667,7 +1706,7 @@ packages:
     resolution: {integrity: sha512-ZUxbzKl0IfJILTS6t7ip5fQQM/J3TJYubDm3nMbgubNNYS62eXeUpoLUC8/7fJNiFYHTrGPQn7hspDUzIHX3UA==}
     dependencies:
       '@types/minimatch': 5.1.2
-      '@types/node': 20.5.2
+      '@types/node': 20.10.5
     dev: true
 
   /@types/hoist-non-react-statics/3.3.5:
@@ -1799,7 +1838,7 @@ packages:
   /@types/through/0.0.33:
     resolution: {integrity: sha512-HsJ+z3QuETzP3cswwtzt2vEIiHBk/dCcHGhbmG5X3ecnwFD/lPrMpliGXxSCg03L9AhrdwA4Oz/qfspkDW+xGQ==}
     dependencies:
-      '@types/node': 20.5.2
+      '@types/node': 20.10.5
     dev: true
 
   /@types/triple-beam/1.3.5:
@@ -2471,7 +2510,7 @@ packages:
     engines: {node: '>= 0.8'}
     dependencies:
       bytes: 3.0.0
-      content-type: 1.0.4
+      content-type: 1.0.5
       debug: 2.6.9
       depd: 1.1.2
       http-errors: 1.6.3
@@ -2888,7 +2927,6 @@ packages:
   /content-type/1.0.5:
     resolution: {integrity: sha512-nTjqfcBFEipKdXCv4YDQWCfmcLZKm81ldF0pAopTvyrFGVbcR6P/VAAd5G7N+0tTr8QqiU0tFadD6FK4NtJwOA==}
     engines: {node: '>= 0.6'}
-    dev: false
 
   /convert-source-map/1.9.0:
     resolution: {integrity: sha512-ASFBup0Mz1uyiIjANan1jzLQami9z1PoYSZCiiYW2FczPbenXc45FZdBZLzOT+r6+iciuEModtmCti+hjaAk0A==}
@@ -3947,7 +3985,7 @@ packages:
       array-flatten: 1.1.1
       body-parser: 1.18.3
       content-disposition: 0.5.2
-      content-type: 1.0.4
+      content-type: 1.0.5
       cookie: 0.3.1
       cookie-signature: 1.0.6
       debug: 2.6.9
