@@ -14,13 +14,13 @@
   "license": "ISC",
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
-    "@repo/typescript-config": "workspace:0.0.0",
+    "@repo/typescript-config": "workspace:*",
     "esbuild": "0.19.9",
     "typescript": "5.3.3"
   },
   "dependencies": {
     "dotenv": "16.3.1",
-    "logger": "workspace:1.0.0",
+    "logger": "workspace:*",
     "neo4j-driver": "5.15.0",
     "zod": "3.22.4"
   }

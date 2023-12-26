@@ -15,12 +15,12 @@
   "types": "src/index.ts",
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
-    "@repo/typescript-config": "workspace:0.0.0",
+    "@repo/typescript-config": "workspace:*",
     "esbuild": "0.19.9",
     "typescript": "5.3.3"
   },
   "dependencies": {
-    "logger": "workspace:1.0.0",
+    "logger": "workspace:*",
     "neo4j-driver": "5.15.0"
   }
 }
