@@ -5,19 +5,26 @@
     "build": "turbo build",
     "dev": "turbo dev",
     "lint": "turbo lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "postinstall": "pnpm manypkg fix"
   },
-  "devDependencies": {
-    "@repo/eslint-config": "workspace:*",
-    "@repo/typescript-config": "workspace:*",
+  "manypkg": {
+    "ignoredRules": [
+      "INTERNAL_MISMATCH"
+    ]
+  },
+  "packageManager": "pnpm@8.9.0",
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@manypkg/cli": "latest",
+    "@repo/eslint-config": "0.0.0",
+    "@repo/typescript-config": "0.0.0",
     "@turbo/gen": "1.10.12",
     "@types/node": "20.10.5",
     "prettier": "3.1.0",
     "turbo": "latest",
     "typescript": "5.3.3"
-  },
-  "packageManager": "pnpm@8.9.0",
-  "engines": {
-    "node": ">=18"
   }
 }
