@@ -1,5 +1,9 @@
-import { cookies } from "next/headers";
-export default function Page(): JSX.Element {
-  const cookieStore = cookies();
-  return <h1>{cookieStore.get("user-first-name")?.value}</h1>;
+import { LogoutButton } from "@frontend/authentication-view";
+
+export default async function Page(): Promise<JSX.Element> {
+  return (
+    <div>
+      <LogoutButton />
+    </div>
+  );
 }

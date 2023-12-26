@@ -25,7 +25,7 @@ importers:
   apps/auth-service:
     specifiers:
       '@repo/eslint-config': workspace:*
-      '@repo/typescript-config': workspace:0.0.0
+      '@repo/typescript-config': workspace:*
       '@types/bcrypt': 5.0.2
       '@types/cors': 2.8.17
       '@types/express': 4.17.21
@@ -33,18 +33,18 @@ importers:
       '@types/node': 20.10.5
       bcrypt: 5.1.1
       cors: 2.8.5
-      database-core: workspace:1.0.0
-      environment-variable-handler: workspace:1.0.0
+      database-core: workspace:*
+      environment-variable-handler: workspace:*
       esbuild: 0.19.9
       express: 4.18.2
       joi: 17.11.0
       jsonwebtoken: 9.0.2
-      logger: workspace:1.0.0
+      logger: workspace:*
       nodemon: 3.0.2
       ts-node: 10.9.2
       tslib: 2.6.2
       typescript: 5.3.3
-      user-model: workspace:1.0.0
+      user-model: workspace:*
       zod: 3.22.4
     dependencies:
       bcrypt: 5.1.1
@@ -78,18 +78,18 @@ importers:
       '@graphql-tools/utils': 10.0.11
       '@neo4j/graphql': 4.4.4
       '@repo/eslint-config': workspace:*
-      '@repo/typescript-config': workspace:0.0.0
+      '@repo/typescript-config': workspace:*
       '@types/node': 20.10.5
-      database-core: workspace:1.0.0
-      environment-variable-handler: workspace:1.0.0
+      database-core: workspace:*
+      environment-variable-handler: workspace:*
       esbuild: 0.19.9
       graphql: 16.8.1
-      logger: workspace:1.0.0
+      logger: workspace:*
       neo4j-driver: 5.15.0
       nodemon: 3.0.2
       ts-node: 10.9.2
       typescript: 5.3.3
-      user-model: workspace:1.0.0
+      user-model: workspace:*
       zod: 3.22.4
     dependencies:
       '@apollo/server': 4.9.5_graphql@16.8.1
@@ -116,15 +116,16 @@ importers:
     specifiers:
       '@emotion/react': 11.11.1
       '@emotion/styled': 11.11.0
-      '@form/components': workspace:1.0.0
+      '@frontend/authentication-view': workspace:*
+      '@frontend/form-components': workspace:*
       '@next/eslint-plugin-next': 14.0.2
       '@repo/eslint-config': workspace:*
       '@repo/typescript-config': workspace:*
-      '@tailwind/config': workspace:1.0.0
+      '@tailwind/config': workspace:*
       '@types/eslint': 8.44.7
       '@types/node': 20.10.5
-      '@types/react': 17.0.2
-      '@types/react-dom': 17.0.2
+      '@types/react': 18.0.2
+      '@types/react-dom': 18.0.2
       autoprefixer: 10.4.16
       axios: 1.6.2
       eslint: 8.53.0
@@ -139,11 +140,12 @@ importers:
       tailwind: 4.0.0
       tailwindcss: 3.4.0
       typescript: 5.3.3
-      user-model: workspace:1.0.0
+      user-model: workspace:*
     dependencies:
-      '@emotion/react': 11.11.1_akgelr6b34ghs4njbbtjaykm7q
-      '@emotion/styled': 11.11.0_oj4tmp6wntquaunsi4efcy3z7i
-      '@form/components': link:../../packages/frontend/form-components
+      '@emotion/react': 11.11.1_z4nlbosket4bvhe4v4om5c6scu
+      '@emotion/styled': 11.11.0_ydn2erfhrvrlc2jn3xvhuakxly
+      '@frontend/authentication-view': link:../../packages/frontend/authentication-view
+      '@frontend/form-components': link:../../packages/frontend/form-components
       axios: 1.6.2
       next: 14.0.3_2sxiyfzeap2fgw7t7svnurc6pi
       next-auth: 4.24.5_pvgaconotzu4vdk37yty4okb7y
@@ -159,8 +161,8 @@ importers:
       '@tailwind/config': link:../../packages/configs/tailwind-config
       '@types/eslint': 8.44.7
       '@types/node': 20.10.5
-      '@types/react': 17.0.2
-      '@types/react-dom': 17.0.2
+      '@types/react': 18.0.2
+      '@types/react-dom': 18.0.2
       autoprefixer: 10.4.16_postcss@8.4.32
       eslint: 8.53.0
       postcss: 8.4.32
@@ -172,9 +174,9 @@ importers:
   packages/backend/database-core:
     specifiers:
       '@repo/eslint-config': workspace:*
-      '@repo/typescript-config': workspace:0.0.0
+      '@repo/typescript-config': workspace:*
       esbuild: 0.19.9
-      logger: workspace:1.0.0
+      logger: workspace:*
       neo4j-driver: 5.15.0
       typescript: 5.3.3
     dependencies:
@@ -189,10 +191,10 @@ importers:
   packages/backend/environment-variable-handler:
     specifiers:
       '@repo/eslint-config': workspace:*
-      '@repo/typescript-config': workspace:0.0.0
+      '@repo/typescript-config': workspace:*
       dotenv: 16.3.1
       esbuild: 0.19.9
-      logger: workspace:1.0.0
+      logger: workspace:*
       neo4j-driver: 5.15.0
       typescript: 5.3.3
       zod: 3.22.4
@@ -209,7 +211,7 @@ importers:
 
   packages/backend/logger:
     specifiers:
-      '@repo/typescript-config': workspace:0.0.0
+      '@repo/typescript-config': workspace:*
       esbuild: 0.19.9
       winston: 3.11.0
     dependencies:
@@ -221,7 +223,7 @@ importers:
   packages/common/user-model:
     specifiers:
       '@repo/eslint-config': workspace:*
-      '@repo/typescript-config': workspace:0.0.0
+      '@repo/typescript-config': workspace:*
       esbuild: 0.19.9
     devDependencies:
       '@repo/eslint-config': link:../../configs/eslint-config
@@ -257,17 +259,64 @@ importers:
   packages/configs/typescript-config:
     specifiers: {}
 
+  packages/frontend/authentication-view:
+    specifiers:
+      '@frontend/form-components': workspace:1.0.0
+      '@nanostores/persistent': 0.9.1
+      '@nanostores/react': 0.7.1
+      '@repo/eslint-config': workspace:*
+      '@repo/typescript-config': workspace:*
+      '@types/node': 20.10.5
+      '@types/react': 18.0.2
+      '@types/react-dom': 18.0.2
+      autoprefixer: 10.4.16
+      axios: 1.6.2
+      nanostores: 0.9.5
+      next: 14.0.3
+      postcss: 8.4.32
+      react: 18.2.0
+      react-cookie: 6.1.1
+      react-dom: 18.2.0
+      react-hook-form: 7.49.2
+      sass: 1.69.5
+      tailwind: 4.0.0
+      typescript: 5.3.3
+      user-model: workspace:1.0.0
+    dependencies:
+      '@frontend/form-components': link:../form-components
+      '@nanostores/persistent': 0.9.1_nanostores@0.9.5
+      '@nanostores/react': 0.7.1_f7bn66ljxqyv426n5eme7tizfy
+      axios: 1.6.2
+      nanostores: 0.9.5
+      next: 14.0.3_2sxiyfzeap2fgw7t7svnurc6pi
+      react: 18.2.0
+      react-cookie: 6.1.1_react@18.2.0
+      react-dom: 18.2.0_react@18.2.0
+      react-hook-form: 7.49.2_react@18.2.0
+      user-model: link:../../common/user-model
+    devDependencies:
+      '@repo/eslint-config': link:../../configs/eslint-config
+      '@repo/typescript-config': link:../../configs/typescript-config
+      '@types/node': 20.10.5
+      '@types/react': 18.0.2
+      '@types/react-dom': 18.0.2
+      autoprefixer: 10.4.16_postcss@8.4.32
+      postcss: 8.4.32
+      sass: 1.69.5
+      tailwind: 4.0.0
+      typescript: 5.3.3
+
   packages/frontend/form-components:
     specifiers:
       '@emotion/react': 11.11.1
       '@emotion/styled': 11.11.0
       '@repo/eslint-config': workspace:*
       '@repo/typescript-config': workspace:*
-      '@tailwind/config': workspace:1.0.0
+      '@tailwind/config': workspace:*
       '@turbo/gen': 1.10.12
       '@types/node': 20.10.5
-      '@types/react': 17.0.2
-      '@types/react-dom': 17.0.2
+      '@types/react': 18.0.2
+      '@types/react-dom': 18.0.2
       autoprefixer: 10.4.16
       postcss: 8.4.32
       react: 18.2.0
@@ -277,8 +326,8 @@ importers:
       tailwind: 4.0.0
       typescript: 5.3.3
     dependencies:
-      '@emotion/react': 11.11.1_akgelr6b34ghs4njbbtjaykm7q
-      '@emotion/styled': 11.11.0_oj4tmp6wntquaunsi4efcy3z7i
+      '@emotion/react': 11.11.1_z4nlbosket4bvhe4v4om5c6scu
+      '@emotion/styled': 11.11.0_ydn2erfhrvrlc2jn3xvhuakxly
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       react-hook-form: 7.49.2_react@18.2.0
@@ -288,8 +337,8 @@ importers:
       '@tailwind/config': link:../../configs/tailwind-config
       '@turbo/gen': 1.10.12_7ln3lwozyybesesf4lghtaucbi
       '@types/node': 20.10.5
-      '@types/react': 17.0.2
-      '@types/react-dom': 17.0.2
+      '@types/react': 18.0.2
+      '@types/react-dom': 18.0.2
       autoprefixer: 10.4.16_postcss@8.4.32
       postcss: 8.4.32
       sass: 1.69.5
@@ -809,7 +858,7 @@ packages:
     resolution: {integrity: sha512-W2P2c/VRW1/1tLox0mVUalvnWXxavmv/Oum2aPsRcoDJuob75FC3Y8FbpfLwUegRcxINtGUMPq0tFCvYNTBXNA==}
     dev: false
 
-  /@emotion/react/11.11.1_akgelr6b34ghs4njbbtjaykm7q:
+  /@emotion/react/11.11.1_z4nlbosket4bvhe4v4om5c6scu:
     resolution: {integrity: sha512-5mlW1DquU5HaxjLkfkGN1GA/fvVGdyHURRiX/0FHl2cfIfRxSOfmxEH5YS43edp0OldZrZ+dkBKbngxcNCdZvA==}
     peerDependencies:
       '@types/react': '*'
@@ -825,7 +874,7 @@ packages:
       '@emotion/use-insertion-effect-with-fallbacks': 1.0.1_react@18.2.0
       '@emotion/utils': 1.2.1
       '@emotion/weak-memoize': 0.3.1
-      '@types/react': 17.0.2
+      '@types/react': 18.0.2
       hoist-non-react-statics: 3.3.2
       react: 18.2.0
     dev: false
@@ -844,7 +893,7 @@ packages:
     resolution: {integrity: sha512-0QBtGvaqtWi+nx6doRwDdBIzhNdZrXUppvTM4dtZZWEGTXL/XE/yJxLMGlDT1Gt+UHH5IX1n+jkXyytE/av7OA==}
     dev: false
 
-  /@emotion/styled/11.11.0_oj4tmp6wntquaunsi4efcy3z7i:
+  /@emotion/styled/11.11.0_ydn2erfhrvrlc2jn3xvhuakxly:
     resolution: {integrity: sha512-hM5Nnvu9P3midq5aaXj4I+lnSfNi7Pmd4EWk1fOZ3pxookaQTNew6bp4JaCBYM4HVFZF9g7UjJmsUmC2JlxOng==}
     peerDependencies:
       '@emotion/react': ^11.0.0-rc.0
@@ -857,11 +906,11 @@ packages:
       '@babel/runtime': 7.23.6
       '@emotion/babel-plugin': 11.11.0
       '@emotion/is-prop-valid': 1.2.1
-      '@emotion/react': 11.11.1_akgelr6b34ghs4njbbtjaykm7q
+      '@emotion/react': 11.11.1_z4nlbosket4bvhe4v4om5c6scu
       '@emotion/serialize': 1.1.2
       '@emotion/use-insertion-effect-with-fallbacks': 1.0.1_react@18.2.0
       '@emotion/utils': 1.2.1
-      '@types/react': 17.0.2
+      '@types/react': 18.0.2
       react: 18.2.0
     dev: false
 
@@ -1368,6 +1417,26 @@ packages:
     resolution: {integrity: sha512-9b8mPpKrfeGRuhFH5iO1iwCLeIIsV6+H1sRfxbkoGXIyQE2BTsPd9zqSqQJ+pv5sJ/hT5M1zvOFL02MnEezFug==}
     dev: true
 
+  /@nanostores/persistent/0.9.1_nanostores@0.9.5:
+    resolution: {integrity: sha512-ow57Hxm5VMaI5GHET/cVk8hX/iKMmbhcGrB9owfN8p8OHiiJgUlYxe1giacwlAALJXAh2t8bxXh42hHb64BCEA==}
+    engines: {node: ^16.0.0 || ^18.0.0 || >=20.0.0}
+    peerDependencies:
+      nanostores: ^0.9.0
+    dependencies:
+      nanostores: 0.9.5
+    dev: false
+
+  /@nanostores/react/0.7.1_f7bn66ljxqyv426n5eme7tizfy:
+    resolution: {integrity: sha512-EXQg9N4MdI4eJQz/AZLIx3hxQ6BuBmV4Q55bCd5YCSgEOAW7tGTsIZxpRXxvxLXzflNvHTBvfrDNY38TlSVBkQ==}
+    engines: {node: ^16.0.0 || ^18.0.0 || >=20.0.0}
+    peerDependencies:
+      nanostores: ^0.9.0
+      react: '>=18.0.0'
+    dependencies:
+      nanostores: 0.9.5
+      react: 18.2.0
+    dev: false
+
   /@neo4j/cypher-builder/1.9.0:
     resolution: {integrity: sha512-UFk0Cgl9PQpOZpoKXDhymm7RZXIGVs3g8G0HfX021OEVczkzKl26+RxRvLhPQCpkX737doC/CrB6/JIYGFSa3A==}
     engines: {node: '>=16.0.0'}
@@ -1815,16 +1884,17 @@ packages:
   /@types/range-parser/1.2.7:
     resolution: {integrity: sha512-hKormJbkJqzQGhziax5PItDUTMAM9uE2XXQmM37dyd4hVM+5aVl7oVxMVUiVQn2oCQFN/LKCZdvSM0pFRqbSmQ==}
 
-  /@types/react-dom/17.0.2:
-    resolution: {integrity: sha512-Icd9KEgdnFfJs39KyRyr0jQ7EKhq8U6CcHRMGAS45fp5qgUvxL3ujUCfWFttUK2UErqZNj97t9gsVPNAqcwoCg==}
+  /@types/react-dom/18.0.2:
+    resolution: {integrity: sha512-UxeS+Wtj5bvLRREz9tIgsK4ntCuLDo0EcAcACgw3E+9wE8ePDr9uQpq53MfcyxyIS55xJ+0B6mDS8c4qkkHLBg==}
     dependencies:
       '@types/react': 18.2.0
     dev: true
 
-  /@types/react/17.0.2:
-    resolution: {integrity: sha512-Xt40xQsrkdvjn1EyWe1Bc0dJLcil/9x2vAuW7ya+PuQip4UYUaXyhzWmAbwRsdMgwOFHpfp7/FFZebDU6Y8VHA==}
+  /@types/react/18.0.2:
+    resolution: {integrity: sha512-2poV9ReTwwV5ZNxkKyk7t6Vp/odeTfYI3vRjtDYWfUdEstx9mp26jzELfMBwV6gXg1irhHUnmZJH/dJW7xafcA==}
     dependencies:
       '@types/prop-types': 15.7.11
+      '@types/scheduler': 0.16.8
       csstype: 3.1.3
 
   /@types/react/18.2.0:
@@ -5655,6 +5725,11 @@ packages:
     resolution: {integrity: sha512-eSRppjcPIatRIMC1U6UngP8XFcz8MQWGQdt1MTBQ7NaAmvXDfvNxbvWV3x2y6CdEUciCSsDHDQZbhYaB8QEo2g==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
+
+  /nanostores/0.9.5:
+    resolution: {integrity: sha512-Z+p+g8E7yzaWwOe5gEUB2Ox0rCEeXWYIZWmYvw/ajNYX8DlXdMvMDj8DWfM/subqPAcsf8l8Td4iAwO1DeIIRQ==}
+    engines: {node: ^16.0.0 || ^18.0.0 || >=20.0.0}
+    dev: false
 
   /natural-compare/1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}

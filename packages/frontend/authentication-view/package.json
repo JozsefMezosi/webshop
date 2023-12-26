@@ -1,5 +1,5 @@
 {
-  "name": "@frontend/form-components",
+  "name": "@frontend/authentication-view",
   "version": "1.0.0",
   "main": "src/index.ts",
   "types": "src/index.ts",
@@ -10,8 +10,6 @@
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
-    "@tailwind/config": "workspace:*",
-    "@turbo/gen": "1.10.12",
     "@types/node": "20.10.5",
     "@types/react": "18.0.2",
     "@types/react-dom": "18.0.2",
@@ -22,10 +20,16 @@
     "typescript": "5.3.3"
   },
   "dependencies": {
-    "@emotion/react": "11.11.1",
-    "@emotion/styled": "11.11.0",
+    "@frontend/form-components": "workspace:1.0.0",
+    "@nanostores/persistent": "0.9.1",
+    "@nanostores/react": "0.7.1",
+    "axios": "1.6.2",
+    "nanostores": "0.9.5",
+    "next": "14.0.3",
     "react": "18.2.0",
+    "react-cookie": "6.1.1",
     "react-dom": "18.2.0",
-    "react-hook-form": "7.49.2"
+    "react-hook-form": "7.49.2",
+    "user-model": "workspace:1.0.0"
   }
 }

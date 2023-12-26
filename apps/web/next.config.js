@@ -1,4 +1,8 @@
 /** @type {import('next').NextConfig} */
 module.exports = {
-  transpilePackages: ["@form/components", "@tailwind/config"],
+  transpilePackages: [
+    "@frontend/form-components",
+    "@tailwind/config",
+    "@frontend/authentication-view",
+  ],
 };
