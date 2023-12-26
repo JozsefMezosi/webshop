@@ -3,7 +3,7 @@ import { join } from "path";
 import { ProjectType, projectTypes } from "../../model/project-type.model";
 
 const frontEndIndexFileContent =
-  "export const example = () => <div>Example component</div>";
+  "export const Example = () => <div>Example component</div>";
 
 const backIndexFileContent = "export const example = 'example'";
 

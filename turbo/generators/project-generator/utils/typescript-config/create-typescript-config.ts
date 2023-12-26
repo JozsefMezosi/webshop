@@ -15,5 +15,4 @@ export const createTypescriptConfig = ({ projectPath, type }: CreateConfig) => {
   const configPath = join(projectPath, `tsconfig.json`);
 
   writeFileSync(configPath, tsconfig);
-  return;
 };
