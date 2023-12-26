@@ -11,7 +11,7 @@
     "module": "ESNext",
     "moduleResolution": "Node",
     "allowJs": false,
-    "jsx": "react-jsx",
+    "jsx": "preserve",
     "noEmit": true
   }
 }

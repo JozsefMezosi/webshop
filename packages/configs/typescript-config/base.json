@@ -10,10 +10,10 @@
       "DOM",
       "DOM.Iterable"
     ],
-    "module": "NodeNext",
+    "module": "ESNext",
+    "moduleResolution": "Node",
     "moduleDetection": "force",
     "importHelpers": true,
-    "moduleResolution": "NodeNext",
     "noUncheckedIndexedAccess": true,
     "resolveJsonModule": true,
     "skipLibCheck": true,

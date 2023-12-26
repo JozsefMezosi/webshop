@@ -18,7 +18,7 @@ module.exports = {
     node: true,
     browser: true,
   },
-  plugins: ["only-warn"],
+  plugins: ["only-warn", "react", "react-hooks"],
   settings: {
     "import/resolver": {
       typescript: {
@@ -26,6 +26,7 @@ module.exports = {
       },
     },
   },
+  rules: { "react-hooks/exhaustive-deps": "error" },
   ignorePatterns: [
     // Ignore dotfiles
     ".*.js",
