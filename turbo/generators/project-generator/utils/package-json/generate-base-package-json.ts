@@ -19,7 +19,6 @@ export const generateBasePackageJson = ({
       "@repo/typescript-config": "workspace:*",
       typescript: "5.3.3",
     },
-    license: "ISC",
   };
 
   if (type === projectTypes.backend) {
