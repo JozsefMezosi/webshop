@@ -19,10 +19,11 @@ export type UserLoginDto = Pick<UserData, "email" | "password">;
 export type RegisterUserDto = Omit<UserData, "address">;
 export type LoginUserDto = Pick<UserData, "email" | "password">;
 
+export type TokenResult = { value: string; exp: number };
 export interface LoginUserResult {
   tokens: {
-    token: { value: string; exp: number };
-    refreshToken: { value: string; exp: number };
+    authToken: TokenResult;
+    refreshToken: TokenResult;
   };
   userData: {
     name: {
