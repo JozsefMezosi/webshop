@@ -1,6 +1,9 @@
 import { ProjectType, projectTypes } from "../../model/project-type.model";
 
-export const generateBaseEslintJson = (type: ProjectType) => {
+export const generateBaseEslintJson = (
+  type: ProjectType,
+  isNextJs?: boolean
+) => {
   if (type === projectTypes.backend) {
     return {
       root: true,
@@ -14,7 +17,11 @@ export const generateBaseEslintJson = (type: ProjectType) => {
 
   return {
     root: true,
-    extends: ["@repo/eslint-config/react-internal.js"],
+    extends: [
+      isNextJs
+        ? "@repo/eslint-config/next.js"
+        : "@repo/eslint-config/react-internal.js",
+    ],
     parser: "@typescript-eslint/parser",
   };
 };

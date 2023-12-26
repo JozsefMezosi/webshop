@@ -4,6 +4,7 @@ export interface Answers {
   type: ProjectType;
   projectName: string;
   database?: boolean;
+  isNextJs?: boolean;
   logger?: boolean;
   addToApp?: boolean;
   turbo: {

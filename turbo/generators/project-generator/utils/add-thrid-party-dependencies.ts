@@ -2,7 +2,7 @@ import { execSync } from "child_process";
 import { Answers } from "../model/answers.model";
 import { projectTypes } from "../model/project-type.model";
 
-const frontendDependencies: string[] = ["react", "react-dom"];
+const frontendDependencies: string[] = ["react", "react-dom"] as const;
 const frontendDevDependencies: string[] = [
   "@types/node",
   "@types/react",
@@ -11,13 +11,14 @@ const frontendDevDependencies: string[] = [
   "postcss",
   "sass",
   "tailwind",
-];
+] as const;
 type AddThirdPartyDependenciesProps = Answers & {
   projectPath: string;
 };
 export const addThirdPartyDependencies = ({
   projectPath,
   database,
+  isNextJs: nextjs,
   type,
 }: AddThirdPartyDependenciesProps) => {
   let devDependencies: string[] = [];
@@ -31,6 +32,9 @@ export const addThirdPartyDependencies = ({
   if (type === projectTypes.frontend) {
     dependencies = [...frontendDependencies, ...dependencies];
     devDependencies = [...frontendDevDependencies, ...devDependencies];
+    if (nextjs) {
+      dependencies = [...dependencies, "next"];
+    }
   }
 
   if (devDependencies.length) {

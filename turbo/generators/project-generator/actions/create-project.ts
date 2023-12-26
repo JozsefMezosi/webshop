@@ -24,7 +24,7 @@ export const createProject: PlopTypes.CustomActionFunction = async (
 
   createPackageJson({ answers, projectPath });
 
-  createConfigFiles({ projectPath, type });
+  createConfigFiles({ projectPath, type, isNextJs: answers.isNextJs });
 
   addProjectToWebApp(answers);
 

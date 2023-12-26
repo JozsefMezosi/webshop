@@ -34,6 +34,12 @@ export const projectGenerator = (plop: PlopTypes.NodePlopAPI) =>
         when: isTypeValidation(projectTypes.backend),
       },
       {
+        type: "confirm",
+        name: "isNextJs",
+        message: "Do you want to add nextjs to the project?",
+        when: isTypeValidation(projectTypes.frontend),
+      },
+      {
         type: "input",
         name: "projectName",
         message: "What is the name of the new project to create?",

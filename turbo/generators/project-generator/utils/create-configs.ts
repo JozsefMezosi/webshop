@@ -5,8 +5,12 @@ import { projectTypes } from "../model/project-type.model";
 import { createTailwindConfig } from "./create-tailwind-config";
 import { createPostCssConfig } from "./create-post-css-config";
 
-export const createConfigFiles = ({ projectPath, type }: CreateConfig) => {
-  createEslintConfig({ projectPath, type });
+export const createConfigFiles = ({
+  projectPath,
+  type,
+  isNextJs,
+}: CreateConfig) => {
+  createEslintConfig({ projectPath, type, isNextJs });
 
   createTypescriptConfig({ projectPath, type });
 
