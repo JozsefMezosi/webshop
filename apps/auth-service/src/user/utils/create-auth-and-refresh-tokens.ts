@@ -1,27 +1,39 @@
 import { LoginUserResult, UserRoles } from "user-model";
 import { createAuthToken } from "./create-auth-token";
 import { signJwt } from "./sign-jwt";
+import { getExpireDate } from "./get-expire-date";
 
 interface CreateAuthAndRefreshTokensProps {
   email: string;
   roles: UserRoles;
 }
+
 export const createAuthAndRefreshTokens = ({
   email,
   roles,
 }: CreateAuthAndRefreshTokensProps): LoginUserResult["tokens"] => {
+  const jwtExp = parseInt(process.env.JWT_EXP_IN_SECONDS);
+  const refreshTokenExpInSeconds = parseInt(
+    process.env.JWT_REFRESH_TOKEN_EXP_IN_SECONDS
+  );
   const token = createAuthToken({ email, roles });
   const refreshToken = signJwt({
     payload: { email },
     subject: email,
-    expiresIn: process.env.JWT_EXP_IN_SECONDS,
+    expiresIn: refreshTokenExpInSeconds,
   });
 
+  const now = new Date();
+  const authTokenExp = getExpireDate({ now, secondsToAdd: jwtExp });
+  const refreshTokenExp = getExpireDate({
+    now,
+    secondsToAdd: refreshTokenExpInSeconds,
+  });
   return {
-    token: { value: token, exp: parseInt(process.env.JWT_EXP_IN_SECONDS) },
+    authToken: { value: token, exp: authTokenExp.getTime() },
     refreshToken: {
       value: refreshToken,
-      exp: parseInt(process.env.JWT_REFRESH_TOKEN_EXP_IN_SECONDS),
+      exp: refreshTokenExp.getTime(),
     },
   };
 };

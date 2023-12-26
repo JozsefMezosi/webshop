@@ -9,4 +9,5 @@ export const createAuthToken = ({ email, roles }: CreateAuthTokenProps) =>
   signJwt({
     payload: { email, roles },
     subject: email,
+    expiresIn: process.env.JWT_EXP_IN_SECONDS,
   });
