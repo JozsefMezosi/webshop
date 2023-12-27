@@ -22,7 +22,10 @@ export const addProjectToNextConfig = ({
     .replaceAll(",};", "}");
 
   const nextConfig: { transpilePackages: string[] } = JSON.parse(
-    nextConfigAsString.slice(fileBeginning.replaceAll("\n", "").length)
+    nextConfigAsString
+      .slice(fileBeginning.replaceAll("\n", "").length)
+      .replaceAll(" ", "")
+      .replaceAll(",]", "]")
   );
 
   const transpilePackages = [
