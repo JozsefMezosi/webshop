@@ -1,5 +1,5 @@
-import { LoginForm } from "@frontend/authentication-view";
+import { LoginPage } from "@frontend/authentication-view";
 
 export default function Page(): JSX.Element {
-  return <LoginForm />;
+  return <LoginPage />;
 }

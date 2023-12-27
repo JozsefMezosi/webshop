@@ -24,6 +24,7 @@ importers:
 
   apps/auth-service:
     specifiers:
+      '@common/http-status-codes': workspace:^1.0.0
       '@repo/eslint-config': workspace:*
       '@repo/typescript-config': workspace:*
       '@types/bcrypt': 5.0.2
@@ -47,6 +48,7 @@ importers:
       user-model: workspace:*
       zod: 3.22.4
     dependencies:
+      '@common/http-status-codes': link:../../packages/common/http-status-codes
       bcrypt: 5.1.1
       cors: 2.8.5
       database-core: link:../../packages/backend/database-core
@@ -118,6 +120,7 @@ importers:
       '@emotion/styled': 11.11.0
       '@frontend/authentication-view': workspace:*
       '@frontend/form-components': workspace:*
+      '@frontend/toast-context': workspace:*
       '@next/eslint-plugin-next': 14.0.2
       '@repo/eslint-config': workspace:*
       '@repo/typescript-config': workspace:*
@@ -130,7 +133,6 @@ importers:
       axios: 1.6.2
       eslint: 8.53.0
       next: 14.0.3
-      next-auth: 4.24.5
       postcss: 8.4.32
       react: 18.2.0
       react-cookie: 6.1.1
@@ -146,9 +148,9 @@ importers:
       '@emotion/styled': 11.11.0_ydn2erfhrvrlc2jn3xvhuakxly
       '@frontend/authentication-view': link:../../packages/frontend/authentication-view
       '@frontend/form-components': link:../../packages/frontend/form-components
+      '@frontend/toast-context': link:../../packages/frontend/toast-context
       axios: 1.6.2
       next: 14.0.3_2sxiyfzeap2fgw7t7svnurc6pi
-      next-auth: 4.24.5_pvgaconotzu4vdk37yty4okb7y
       react: 18.2.0
       react-cookie: 6.1.1_react@18.2.0
       react-dom: 18.2.0_react@18.2.0
@@ -220,6 +222,19 @@ importers:
       '@repo/typescript-config': link:../../configs/typescript-config
       esbuild: 0.19.9
 
+  packages/common/errors:
+    specifiers:
+      '@common/http-status-codes': workspace:^1.0.0
+      '@repo/eslint-config': workspace:*
+      '@repo/typescript-config': workspace:*
+      esbuild: 0.19.9
+    dependencies:
+      '@common/http-status-codes': link:../http-status-codes
+    devDependencies:
+      '@repo/eslint-config': link:../../configs/eslint-config
+      '@repo/typescript-config': link:../../configs/typescript-config
+      esbuild: 0.19.9
+
   packages/common/user-model:
     specifiers:
       '@repo/eslint-config': workspace:*
@@ -261,7 +276,10 @@ importers:
 
   packages/frontend/authentication-view:
     specifiers:
+      '@common/http-status-codes': workspace:1.0.0
       '@frontend/form-components': workspace:1.0.0
+      '@frontend/toast-context': workspace:1.0.0
+      '@heroicons/react': 2.1.1
       '@nanostores/persistent': 0.9.1
       '@nanostores/react': 0.7.1
       '@repo/eslint-config': workspace:*
@@ -283,7 +301,10 @@ importers:
       typescript: 5.3.3
       user-model: workspace:1.0.0
     dependencies:
+      '@common/http-status-codes': link:../../common/http-status-codes
       '@frontend/form-components': link:../form-components
+      '@frontend/toast-context': link:../toast-context
+      '@heroicons/react': 2.1.1_react@18.2.0
       '@nanostores/persistent': 0.9.1_nanostores@0.9.5
       '@nanostores/react': 0.7.1_f7bn66ljxqyv426n5eme7tizfy
       axios: 1.6.2
@@ -310,6 +331,7 @@ importers:
     specifiers:
       '@emotion/react': 11.11.1
       '@emotion/styled': 11.11.0
+      '@heroicons/react': 2.1.1
       '@repo/eslint-config': workspace:*
       '@repo/typescript-config': workspace:*
       '@tailwind/config': workspace:*
@@ -318,6 +340,7 @@ importers:
       '@types/react': 18.0.2
       '@types/react-dom': 18.0.2
       autoprefixer: 10.4.16
+      classnames: 2.4.0
       postcss: 8.4.32
       react: 18.2.0
       react-dom: 18.2.0
@@ -328,6 +351,8 @@ importers:
     dependencies:
       '@emotion/react': 11.11.1_z4nlbosket4bvhe4v4om5c6scu
       '@emotion/styled': 11.11.0_ydn2erfhrvrlc2jn3xvhuakxly
+      '@heroicons/react': 2.1.1_react@18.2.0
+      classnames: 2.4.0
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       react-hook-form: 7.49.2_react@18.2.0
@@ -336,6 +361,37 @@ importers:
       '@repo/typescript-config': link:../../configs/typescript-config
       '@tailwind/config': link:../../configs/tailwind-config
       '@turbo/gen': 1.10.12_7ln3lwozyybesesf4lghtaucbi
+      '@types/node': 20.10.5
+      '@types/react': 18.0.2
+      '@types/react-dom': 18.0.2
+      autoprefixer: 10.4.16_postcss@8.4.32
+      postcss: 8.4.32
+      sass: 1.69.5
+      tailwind: 4.0.0
+      typescript: 5.3.3
+
+  packages/frontend/toast-context:
+    specifiers:
+      '@repo/eslint-config': workspace:*
+      '@repo/typescript-config': workspace:*
+      '@types/node': 20.10.5
+      '@types/react': 18.0.2
+      '@types/react-dom': 18.0.2
+      autoprefixer: 10.4.16
+      postcss: 8.4.32
+      react: 18.2.0
+      react-dom: 18.2.0
+      react-toastify: 9.1.3
+      sass: 1.69.5
+      tailwind: 4.0.0
+      typescript: 5.3.3
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+      react-toastify: 9.1.3_biqbaboplfbrettd7655fr4n2y
+    devDependencies:
+      '@repo/eslint-config': link:../../configs/eslint-config
+      '@repo/typescript-config': link:../../configs/typescript-config
       '@types/node': 20.10.5
       '@types/react': 18.0.2
       '@types/react-dom': 18.0.2
@@ -1269,6 +1325,14 @@ packages:
       '@hapi/hoek': 9.3.0
     dev: false
 
+  /@heroicons/react/2.1.1_react@18.2.0:
+    resolution: {integrity: sha512-JyyN9Lo66kirbCMuMMRPtJxtKJoIsXKS569ebHGGRKbl8s4CtUfLnyKJxteA+vIKySocO4s1SkTkGS4xtG/yEA==}
+    peerDependencies:
+      react: '>= 16'
+    dependencies:
+      react: 18.2.0
+    dev: false
+
   /@humanwhocodes/config-array/0.11.13:
     resolution: {integrity: sha512-JSBDMiDKSzQVngfRjOdFXgFfklaXI4K9nLF49Auh21lmBWRLIK3+xTErTWD4KU54pb6coM6ESE7Awz/FNU3zgQ==}
     engines: {node: '>=10.10.0'}
@@ -1587,10 +1651,6 @@ packages:
     dependencies:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.16.0
-
-  /@panva/hkdf/1.1.1:
-    resolution: {integrity: sha512-dhPeilub1NuIG0X5Kvhh9lH4iW3ZsHlnzwgwbOlgwQ2wG1IqFzsgHqmKPk3WzsdWAeaxKJxgM0+W433RmN45GA==}
-    dev: false
 
   /@pkgjs/parseargs/0.11.0:
     resolution: {integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==}
@@ -2865,6 +2925,10 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
+  /classnames/2.4.0:
+    resolution: {integrity: sha512-lWxiIlphgAhTLN657pwU/ofFxsUTOWc2CRIFeoV5st0MGRJHStUnWIUJgDHxjUO/F0mXzGufXIM4Lfu/8h+MpA==}
+    dev: false
+
   /clean-regexp/1.0.0:
     resolution: {integrity: sha512-GfisEZEJvzKrmGWkvfhgzcz/BllN1USeqD2V6tg14OAOgaCD2Z/PUEuxnAZ/nPvmaHRG7a8y77p1T/IRQ4D1Hw==}
     engines: {node: '>=4'}
@@ -2897,6 +2961,11 @@ packages:
   /clone/1.0.4:
     resolution: {integrity: sha512-JQHZ2QMW6l3aH/j6xCqQThY/9OH4D/9ls34cgkUBiEeocRTU04tHfKPBsUK1PqZCUQM7GiA0IIXJSuXHI64Kbg==}
     engines: {node: '>=0.8'}
+
+  /clsx/1.2.1:
+    resolution: {integrity: sha512-EcR6r5a8bj6pu3ycsa/E/cKVGuTgZJZdsyUYHOksG/UHIiKfjxzRxYJpyVBwYaQeOvghal9fcc4PidlgzugAQg==}
+    engines: {node: '>=6'}
+    dev: false
 
   /color-convert/1.9.3:
     resolution: {integrity: sha512-QfAUtd+vFdAtFQcC8CCyYt1fYWxSqAiK2cSD6zDB8N3cpsEBAvRxp9zOGg6G/SHHJYAT88/az/IuDGALsNVbGg==}
@@ -5224,10 +5293,6 @@ packages:
       '@sideway/pinpoint': 2.0.0
     dev: false
 
-  /jose/4.15.4:
-    resolution: {integrity: sha512-W+oqK4H+r5sITxfxpSU+MMdr/YSWGvgZMQDIsNoBDGGy4i7GBPTtvFKibQzW06n3U3TqHjhvBJsirShsEJ6eeQ==}
-    dev: false
-
   /jose/5.1.3:
     resolution: {integrity: sha512-GPExOkcMsCLBTi1YetY2LmkoY559fss0+0KVa6kOfb2YFe84nAM7Nm/XzuZozah4iHgmBGrCOHL5/cy670SBRw==}
     dev: false
@@ -5766,31 +5831,6 @@ packages:
     resolution: {integrity: sha512-dBpDMdxv9Irdq66304OLfEmQ9tbNRFnFTuZiLo+bD+r332bBmMJ8GBLXklIXXgxd3+v9+KUnZaUR5PJMa75Gsg==}
     engines: {node: '>= 0.4.0'}
 
-  /next-auth/4.24.5_pvgaconotzu4vdk37yty4okb7y:
-    resolution: {integrity: sha512-3RafV3XbfIKk6rF6GlLE4/KxjTcuMCifqrmD+98ejFq73SRoj2rmzoca8u764977lH/Q7jo6Xu6yM+Re1Mz/Og==}
-    peerDependencies:
-      next: ^12.2.5 || ^13 || ^14
-      nodemailer: ^6.6.5
-      react: ^17.0.2 || ^18
-      react-dom: ^17.0.2 || ^18
-    peerDependenciesMeta:
-      nodemailer:
-        optional: true
-    dependencies:
-      '@babel/runtime': 7.23.6
-      '@panva/hkdf': 1.1.1
-      cookie: 0.5.0
-      jose: 4.15.4
-      next: 14.0.3_2sxiyfzeap2fgw7t7svnurc6pi
-      oauth: 0.9.15
-      openid-client: 5.6.2
-      preact: 10.19.3
-      preact-render-to-string: 5.2.6_preact@10.19.3
-      react: 18.2.0
-      react-dom: 18.2.0_react@18.2.0
-      uuid: 8.3.2
-    dev: false
-
   /next/14.0.3_2sxiyfzeap2fgw7t7svnurc6pi:
     resolution: {integrity: sha512-AbYdRNfImBr3XGtvnwOxq8ekVCwbFTv/UJoLwmaX89nk9i051AEY4/HAWzU0YpaTDw8IofUpmuIlvzWF13jxIw==}
     engines: {node: '>=18.17.0'}
@@ -5969,18 +6009,9 @@ packages:
       set-blocking: 2.0.0
     dev: false
 
-  /oauth/0.9.15:
-    resolution: {integrity: sha512-a5ERWK1kh38ExDEfoO6qUHJb32rd7aYmPHuyCu3Fta/cnICvYmgd2uhuKXvPD+PXB+gCEYYEaQdIRAjCOwAKNA==}
-    dev: false
-
   /object-assign/4.1.1:
     resolution: {integrity: sha512-rJgTQnkUnH1sFw8yT6VSU3zD3sWmu6sZhIseY8VX+GRu3P6F7Fu+JNDoXfklElbLJSnc3FUQHVe4cU5hj+BcUg==}
     engines: {node: '>=0.10.0'}
-
-  /object-hash/2.2.0:
-    resolution: {integrity: sha512-gScRMn0bS5fH+IuwyIFgnh9zBdo4DV+6GhygmWM9HyNJSgS0hScp1f5vjtm7oIIOiT9trXrShAkLFSc2IqKNgw==}
-    engines: {node: '>= 6'}
-    dev: false
 
   /object-hash/3.0.0:
     resolution: {integrity: sha512-RSn9F68PjH9HqtltsSnqYC1XXoWe9Bju5+213R98cNGttag9q9yAOTzdbsqvIa7aNm5WffBZFpWYr2aWrklWAw==}
@@ -6065,11 +6096,6 @@ packages:
       es-abstract: 1.22.3
     dev: true
 
-  /oidc-token-hash/5.0.3:
-    resolution: {integrity: sha512-IF4PcGgzAr6XXSff26Sk/+P4KZFJVuHAJZj3wgO3vX2bMdNVp/QXTP3P7CEm9V1IdG8lDLY3HhiqpsE/nOwpPw==}
-    engines: {node: ^10.13.0 || >=12.0.0}
-    dev: false
-
   /on-finished/2.3.0:
     resolution: {integrity: sha512-ikqdkGAAyf/X/gPhXGvfgAytDZtDbr+bkNUJ0N9h5MI/dmdgCs3l6hoHrcUv41sRKew3jIwrp4qQDXiK99Utww==}
     engines: {node: '>= 0.8'}
@@ -6122,15 +6148,6 @@ packages:
       is-inside-container: 1.0.0
       is-wsl: 2.2.0
     dev: true
-
-  /openid-client/5.6.2:
-    resolution: {integrity: sha512-TIVimoK/fAvpiISLcoGZyNJx2TOfd5AE6TXn58FFj6Y8qbU/jqky54Aws7sYKuCph1bLPWSRUa1r/Rd6K21bhg==}
-    dependencies:
-      jose: 4.15.4
-      lru-cache: 6.0.0
-      object-hash: 2.2.0
-      oidc-token-hash: 5.0.3
-    dev: false
 
   /optionator/0.9.3:
     resolution: {integrity: sha512-JjCoypp+jKn1ttEFExxhetCKeJt9zhAgAve5FXHixTvFDW/5aEktX9bufBKLRRMdU7bNtpLfcGu94B3cdEJgjg==}
@@ -6422,19 +6439,6 @@ packages:
       source-map-js: 1.0.2
     dev: true
 
-  /preact-render-to-string/5.2.6_preact@10.19.3:
-    resolution: {integrity: sha512-JyhErpYOvBV1hEPwIxc/fHWXPfnEGdRKxc8gFdAZ7XV4tlzyzG847XAyEZqoDnynP88akM4eaHcSOzNcLWFguw==}
-    peerDependencies:
-      preact: '>=10'
-    dependencies:
-      preact: 10.19.3
-      pretty-format: 3.8.0
-    dev: false
-
-  /preact/10.19.3:
-    resolution: {integrity: sha512-nHHTeFVBTHRGxJXKkKu5hT8C/YWBkPso4/Gad6xuj5dbptt9iF9NZr9pHbPhBrnT2klheu7mHTxTZ/LjwJiEiQ==}
-    dev: false
-
   /prelude-ls/1.2.1:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
     engines: {node: '>= 0.8.0'}
@@ -6456,10 +6460,6 @@ packages:
     resolution: {integrity: sha512-TQLvXjq5IAibjh8EpBIkNKxO749UEWABoiIZehEPiY4GNpVdhaFKqSTu+QrlU6D2dPAfubRmtJTi4K4YkQ5eXw==}
     engines: {node: '>=14'}
     hasBin: true
-    dev: false
-
-  /pretty-format/3.8.0:
-    resolution: {integrity: sha512-WuxUnVtlWL1OfZFQFuqvnvs6MiAGk9UNsBostyBOB0Is9wb5uRESevA6rnl/rkksXaGX3GzZhPup5d6Vp1nFew==}
     dev: false
 
   /processenv/1.1.0:
@@ -6613,6 +6613,17 @@ packages:
 
   /react-is/16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
+
+  /react-toastify/9.1.3_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-fPfb8ghtn/XMxw3LkxQBk3IyagNpF/LIKjOBflbexr2AWxAH1MJgvnESwEwBn9liLFXgTKWgBSdZpw9m4OTHTg==}
+    peerDependencies:
+      react: '>=16'
+      react-dom: '>=16'
+    dependencies:
+      clsx: 1.2.1
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: false
 
   /react/18.2.0:
     resolution: {integrity: sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==}
@@ -7878,11 +7889,6 @@ packages:
     deprecated: Please upgrade  to version 7 or higher.  Older versions may use Math.random() in certain circumstances, which is known to be problematic.  See https://v8.dev/blog/math-random for details.
     hasBin: true
     dev: true
-
-  /uuid/8.3.2:
-    resolution: {integrity: sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==}
-    hasBin: true
-    dev: false
 
   /uuid/9.0.1:
     resolution: {integrity: sha512-b+1eJOlsR9K8HJpow9Ok3fiWOWSIcIzXodvv0rQjVoOVNpWMpxf1wZNpt4y9h10odCNrqnYp1OBzRktckBe3sA==}

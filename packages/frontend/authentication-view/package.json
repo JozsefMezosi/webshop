@@ -20,7 +20,10 @@
     "typescript": "5.3.3"
   },
   "dependencies": {
+    "@common/http-status-codes": "workspace:1.0.0",
     "@frontend/form-components": "workspace:1.0.0",
+    "@frontend/toast-context": "workspace:1.0.0",
+    "@heroicons/react": "2.1.1",
     "@nanostores/persistent": "0.9.1",
     "@nanostores/react": "0.7.1",
     "axios": "1.6.2",
