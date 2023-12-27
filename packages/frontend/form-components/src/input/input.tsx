@@ -40,10 +40,14 @@ const InputComponent = <T extends string>(
           id={id}
           {...props}
           ref={ref}
-          className={cl("border border-gray-700 rounded p-2", className, {
-            "pl-9": icon,
-            "border-red-500 text-red-500": error,
-          })}
+          className={cl(
+            "w-full border border-gray-700 rounded p-2",
+            className,
+            {
+              "pl-9": icon,
+              "border-red-500 text-red-500": error,
+            }
+          )}
         />
       </div>
       <InputError message={error} />

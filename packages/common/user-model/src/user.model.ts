@@ -16,7 +16,7 @@ export interface UserData {
 }
 
 export type UserLoginDto = Pick<UserData, "email" | "password">;
-export type RegisterUserDto = Omit<UserData, "address">;
+export type RegisterUserDto = Omit<UserData, "addresses" | "roles">;
 export type LoginUserDto = Pick<UserData, "email" | "password">;
 
 export type TokenResult = { value: string; exp: number };

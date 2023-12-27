@@ -1,7 +1,7 @@
 import { LoginUserDto, LoginUserResult } from "user-model";
-import { authService } from "../service/axios/auth.service";
-import { loginUser } from "../store/actions/login-user";
-import { useSaveUserDataToCookies } from "./hooks/use-save-user-data-to-cookies";
+import { authService } from "../../service/axios/auth.service";
+import { loginUser } from "../../store/actions/login-user";
+import { useSaveUserDataToCookies } from "./use-save-user-data-to-cookies";
 import { useRouter } from "next/navigation";
 import { useToast } from "@frontend/toast-context";
 import { AxiosError } from "axios";
@@ -26,7 +26,7 @@ export const useUserLogin = (errorSetter: UseFormSetError<LoginUserDto>) => {
     } catch (error) {
       if (error instanceof AxiosError) {
         if (error.status === HTTP_STATUS_CODES["Internal Server Error"]) {
-          toast?.error(error.response?.data.error);
+          toast.error(error.response?.data.error);
           return;
         }
 

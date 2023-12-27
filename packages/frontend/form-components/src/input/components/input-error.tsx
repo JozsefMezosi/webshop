@@ -5,5 +5,7 @@ interface InputErrorProps {
 }
 export const InputError: FunctionComponent<InputErrorProps> = ({ message }) =>
   message ? (
-    <span className="text-sm text-red-500 -m-1 text-right pr-3">{message}</span>
+    <span className="text-sm text-red-500 text-right pr-1 break-normal">
+      {message}
+    </span>
   ) : null;

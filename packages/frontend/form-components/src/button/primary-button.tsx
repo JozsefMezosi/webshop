@@ -11,7 +11,7 @@ export const PrimaryButton: FunctionComponent<PrimaryButtonProps> = ({
 }) => (
   <button
     type={type}
-    className="w-32 border border-gray-700 rounded px-10 py-2 hover:bg-slate-100"
+    className="border border-gray-700 rounded px-10 py-2 hover:bg-slate-100"
   >
     {text}
   </button>

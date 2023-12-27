@@ -3,9 +3,9 @@
 import { Input, PrimaryButton } from "@frontend/form-components";
 import { useForm } from "react-hook-form";
 import { LoginUserDto } from "user-model";
-import { useUserLogin } from "./use-user-login";
+import { useUserLogin } from "./hooks/use-user-login";
 import Link from "next/link";
-import { UserIcon, LockClosedIcon } from "@heroicons/react/24/outline";
+import { EnvelopeIcon, LockClosedIcon } from "@heroicons/react/24/outline";
 
 export const LoginForm = () => {
   const {
@@ -26,16 +26,16 @@ export const LoginForm = () => {
         <h2 className="text-center text-lg pb-5">Let's sign you in!</h2>
         <Input
           error={errors.email?.message}
-          icon={<UserIcon />}
+          icon={<EnvelopeIcon />}
           {...register("email", { required: true })}
-          className="w-96"
+          containerClassName="w-96"
           placeholder="john.doe@email.com"
         />
         <Input
           error={errors.password?.message}
           icon={<LockClosedIcon />}
           {...register("password", { required: true })}
-          className="w-96"
+          containerClassName="w-96"
           type="password"
           placeholder="************"
         />
