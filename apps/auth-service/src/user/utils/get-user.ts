@@ -1,6 +1,6 @@
 import { compare } from "bcrypt";
 import { ApiError } from "../../model/api-error";
-import { HTTP_STATUS_CODES } from "../../model/http-status-codes";
+import { HTTP_STATUS_CODES } from "@common/http-status-codes";
 import { findUserByEmail } from "../queries/find-user-by-email";
 import { LoginUserDto } from "user-model";
 

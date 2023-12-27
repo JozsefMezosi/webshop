@@ -1,6 +1,6 @@
 import { LoginUserDto } from "user-model";
 import { ApiError } from "../../../model/api-error";
-import { HTTP_STATUS_CODES } from "../../../model/http-status-codes";
+import { HTTP_STATUS_CODES } from "@common/http-status-codes";
 
 import { validateLoginUserDtoSchema } from "./login-validation.schema";
 

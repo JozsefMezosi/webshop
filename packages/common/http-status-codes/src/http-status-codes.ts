@@ -9,4 +9,4 @@ export const HTTP_STATUS_CODES = {
   "Internal Server Error": 500,
 } as const;
 
-export type HTTP_STATUS_CODES = keyof typeof HTTP_STATUS_CODES;
+export type HTTP_STATUS_CODES_TYPE = keyof typeof HTTP_STATUS_CODES;
