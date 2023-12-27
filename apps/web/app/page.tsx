@@ -1,9 +1,5 @@
 import { LogoutButton } from "@frontend/authentication-view";
 
 export default async function Page(): Promise<JSX.Element> {
-  return (
-    <div>
-      <LogoutButton />
-    </div>
-  );
+  return <div>Home</div>;
 }

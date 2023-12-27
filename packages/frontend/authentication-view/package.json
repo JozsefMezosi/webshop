@@ -27,6 +27,7 @@
     "@nanostores/persistent": "0.9.1",
     "@nanostores/react": "0.7.1",
     "axios": "1.6.2",
+    "classnames": "2.4.0",
     "nanostores": "0.9.5",
     "next": "14.0.3",
     "react": "18.2.0",

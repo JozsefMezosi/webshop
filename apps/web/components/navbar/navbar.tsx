@@ -1,0 +1,25 @@
+"use client";
+
+import { usePathname } from "next/navigation";
+import { useMemo } from "react";
+import { ProfileEntry } from "./profile-entry";
+const pagesWithoutNavbar: string[] = ["/login", "/register"];
+export const Navbar = () => {
+  const pathname = usePathname();
+
+  const shouldNotShowNavbar = useMemo(
+    () => pagesWithoutNavbar.includes(pathname),
+    [pathname]
+  );
+
+  if (shouldNotShowNavbar) {
+    return null;
+  }
+
+  return (
+    <nav className="px-10 py-3 shadow-sm shadow-gray-400 fixed w-screen overflow-hidden bg-white flex justify-between items-center">
+      <div>Navbar</div>
+      <ProfileEntry />
+    </nav>
+  );
+};

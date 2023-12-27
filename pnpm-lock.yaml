@@ -121,6 +121,7 @@ importers:
       '@frontend/authentication-view': workspace:*
       '@frontend/form-components': workspace:*
       '@frontend/toast-context': workspace:*
+      '@heroicons/react': 2.1.1
       '@next/eslint-plugin-next': 14.0.2
       '@repo/eslint-config': workspace:*
       '@repo/typescript-config': workspace:*
@@ -149,6 +150,7 @@ importers:
       '@frontend/authentication-view': link:../../packages/frontend/authentication-view
       '@frontend/form-components': link:../../packages/frontend/form-components
       '@frontend/toast-context': link:../../packages/frontend/toast-context
+      '@heroicons/react': 2.1.1_react@18.2.0
       axios: 1.6.2
       next: 14.0.3_2sxiyfzeap2fgw7t7svnurc6pi
       react: 18.2.0
@@ -286,6 +288,7 @@ importers:
       '@types/react-dom': 18.0.2
       autoprefixer: 10.4.16
       axios: 1.6.2
+      classnames: 2.4.0
       nanostores: 0.9.5
       next: 14.0.3
       postcss: 8.4.32
@@ -305,6 +308,7 @@ importers:
       '@nanostores/persistent': 0.9.1_nanostores@0.9.5
       '@nanostores/react': 0.7.1_f7bn66ljxqyv426n5eme7tizfy
       axios: 1.6.2
+      classnames: 2.4.0
       nanostores: 0.9.5
       next: 14.0.3_2sxiyfzeap2fgw7t7svnurc6pi
       react: 18.2.0

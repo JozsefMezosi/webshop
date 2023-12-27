@@ -1,8 +1,8 @@
-import { getAuthToken } from "@frontend/authentication-view";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { ToastContainer } from "@frontend/toast-context";
+import { Navbar } from "../components/navbar/navbar";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -15,11 +15,13 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }): Promise<JSX.Element> {
-  await getAuthToken();
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ToastContainer>{children}</ToastContainer>
+        <ToastContainer>
+          <Navbar />
+          <div className="pt-16 px-5 ">{children}</div>
+        </ToastContainer>
       </body>
     </html>
   );
