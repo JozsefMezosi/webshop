@@ -13,15 +13,11 @@ export const LogoutButton = () => {
     clearUserFromCookies();
   }, [clearUserFromCookies]);
 
-  const { token, isLoading } = useAuthToken();
+  const token = useAuthToken();
 
   if (!token) {
     return null;
   }
 
-  return (
-    <button onClick={logoutAction} disabled={isLoading}>
-      Logout
-    </button>
-  );
+  return <button onClick={logoutAction}>Logout</button>;
 };
