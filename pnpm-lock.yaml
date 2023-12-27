@@ -222,14 +222,11 @@ importers:
       '@repo/typescript-config': link:../../configs/typescript-config
       esbuild: 0.19.9
 
-  packages/common/errors:
+  packages/common/http-status-codes:
     specifiers:
-      '@common/http-status-codes': workspace:^1.0.0
       '@repo/eslint-config': workspace:*
       '@repo/typescript-config': workspace:*
       esbuild: 0.19.9
-    dependencies:
-      '@common/http-status-codes': link:../http-status-codes
     devDependencies:
       '@repo/eslint-config': link:../../configs/eslint-config
       '@repo/typescript-config': link:../../configs/typescript-config

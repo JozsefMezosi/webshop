@@ -1,5 +1,5 @@
-import { UserRoles } from "database-core/src/model/user.model";
 import { GraphQLError } from "graphql";
+import { UserRoles } from "user-model";
 interface ValidateRolesProps {
   userRoles?: UserRoles[];
   requiredRoles: UserRoles[];
