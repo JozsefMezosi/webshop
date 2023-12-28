@@ -1,6 +1,5 @@
 /* eslint-disable no-unused-vars */
-
-import { UserRoles } from "user-model";
+import { UserRoles, LoginUserResult, TokenResult } from "user-model";
 
 declare module "next-auth" {
   /**
@@ -8,21 +7,22 @@ declare module "next-auth" {
    */
   interface Session {
     token?: string;
-    refreshToken?: string;
     error?: string;
     user?: User;
   }
 
   interface User {
     roles: UserRoles[];
+    tokens: LoginUserResult["tokens"];
     expire?: number;
   }
 }
 
 declare module "next-auth/jwt" {
   interface JWT {
-    token: string;
-    isAdmin: boolean;
-    expire: number;
+    authToken: TokenResult;
+    refreshToken: TokenResult;
+    error?: string;
+    roles: UserRoles[];
   }
 }

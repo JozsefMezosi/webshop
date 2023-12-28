@@ -5,6 +5,11 @@
   },
   "include": [
     "src",
+    "types",
+    "../next-auth-backend/src/get-server-session.ts",
+    "../next-auth-backend/src/next-auth-options.ts",
+    "../next-auth-backend/src/with-auth-middleware.ts",
+    "src/logout/logout-button.tsx"
   ],
   "exclude": [
     "node_modules",
