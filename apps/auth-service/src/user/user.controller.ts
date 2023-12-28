@@ -8,9 +8,9 @@ import { refreshToken } from "./services/refresh-token";
 @Controller
 export class UserController {
   async login(req: Request, res: Response) {
-    const tokens = await loginUser(req.body);
+    const data = await loginUser(req.body);
 
-    res.json(tokens);
+    res.json(data);
   }
 
   async register(req: Request, res: Response) {
@@ -20,8 +20,8 @@ export class UserController {
   }
 
   async refreshToken(req: Request, res: Response) {
-    const token = await refreshToken(req);
+    const tokenWithRoles = await refreshToken(req);
 
-    res.json({ token });
+    res.json(tokenWithRoles);
   }
 }

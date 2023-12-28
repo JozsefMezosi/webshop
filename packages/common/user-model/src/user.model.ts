@@ -5,7 +5,7 @@ export interface UserData {
   password: string;
   firstName: string;
   lastName: string;
-  roles: UserRoles;
+  roles: UserRoles[];
   addresses: Array<{
     country: string;
     zipCode: string;
@@ -19,13 +19,16 @@ export type UserLoginDto = Pick<UserData, "email" | "password">;
 export type RegisterUserDto = Omit<UserData, "addresses" | "roles">;
 export type LoginUserDto = Pick<UserData, "email" | "password">;
 
-export type TokenResult = { value: string; exp: number };
+export type TokenResult = { value: string; expire: number };
+export type TokenResultWithRoles = TokenResult & { roles: UserRoles[] };
 export interface LoginUserResult {
   tokens: {
     authToken: TokenResult;
     refreshToken: TokenResult;
   };
   userData: {
+    email: string;
+    roles: UserRoles[];
     name: {
       firstName: string;
       lastName: string;

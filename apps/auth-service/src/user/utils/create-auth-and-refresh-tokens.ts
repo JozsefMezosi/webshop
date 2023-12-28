@@ -5,7 +5,7 @@ import { getExpireDate } from "./get-expire-date";
 
 interface CreateAuthAndRefreshTokensProps {
   email: string;
-  roles: UserRoles;
+  roles: UserRoles[];
 }
 
 export const createAuthAndRefreshTokens = ({
@@ -30,10 +30,10 @@ export const createAuthAndRefreshTokens = ({
     secondsToAdd: refreshTokenExpInSeconds,
   });
   return {
-    authToken: { value: token, exp: authTokenExp.getTime() },
+    authToken: { value: token, expire: authTokenExp.getTime() },
     refreshToken: {
       value: refreshToken,
-      exp: refreshTokenExp.getTime(),
+      expire: refreshTokenExp.getTime(),
     },
   };
 };

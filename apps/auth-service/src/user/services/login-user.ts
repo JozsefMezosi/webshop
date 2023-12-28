@@ -6,13 +6,15 @@ import { LoginUserDto, LoginUserResult } from "user-model";
 export const loginUser = async (
   loginDto: LoginUserDto
 ): Promise<LoginUserResult> => {
-  validateLoginUserData(loginDto);
+  validateLoginUserData({ email: loginDto.email, password: loginDto.password });
 
   const user = await getUser(loginDto);
 
   return {
     tokens: createAuthAndRefreshTokens(user),
     userData: {
+      email: user.email,
+      roles: user.roles,
       name: {
         firstName: user.firstName,
         lastName: user.lastName,

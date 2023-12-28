@@ -2,6 +2,7 @@
     "esm": "true",
     "experimentalSpecifierResolution": "true",
     "watch": [
+        "./.env",
         "src",
         "../../packages/backend/**/*.ts"
     ]

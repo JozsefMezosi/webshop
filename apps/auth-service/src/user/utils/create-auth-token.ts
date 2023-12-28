@@ -3,7 +3,7 @@ import { signJwt } from "./sign-jwt";
 
 interface CreateAuthTokenProps {
   email: string;
-  roles: UserRoles;
+  roles: UserRoles[];
 }
 export const createAuthToken = ({ email, roles }: CreateAuthTokenProps) =>
   signJwt({
