@@ -7,5 +7,6 @@ export const productTypeDefs = `#graphql
     description: String!
     priceInEuro: Float!
     details: Object
+    imageUrls: [String!]!
    }
 `;
