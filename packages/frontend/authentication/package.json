@@ -1,28 +1,25 @@
 {
-  "name": "@frontend/toast-context",
+  "name": "@frontend/authentication",
   "version": "1.0.0",
   "main": "src/index.ts",
   "types": "src/index.ts",
   "type": "module",
   "scripts": {
-    "build": "tsc --noEmit",
-    "eslint": "eslint ."
+    "build": "tsc --noEmit"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
     "@types/node": "20.10.5",
     "@types/react": "18.0.2",
-    "@types/react-dom": "18.0.2",
-    "autoprefixer": "10.4.16",
-    "postcss": "8.4.32",
-    "sass": "1.69.5",
-    "tailwind": "4.0.0",
     "typescript": "5.3.3"
   },
   "dependencies": {
+    "@common/http-status-codes": "workspace:1.0.0",
+    "@types/js-cookie": "3.0.6",
+    "axios": "1.6.2",
+    "js-cookie": "3.0.5",
     "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-toastify": "9.1.3"
+    "user-model": "workspace:1.0.0"
   }
 }

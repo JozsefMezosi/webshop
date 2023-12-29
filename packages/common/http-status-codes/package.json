@@ -6,7 +6,7 @@
   "types": "src/index.ts",
   "type": "module",
   "scripts": {
-    "build": "esbuild src/index.ts --bundle --platform=node --outfile=dist/index.js"
+    "build": "tsc --noEmit"
   },
   "keywords": [],
   "author": "",

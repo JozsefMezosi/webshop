@@ -1,0 +1,14 @@
+{
+  "name": "@frontend/graphql-models",
+  "version": "1.0.0",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "type": "module",
+  "scripts": {
+    "build": "tsc --noEmit",
+    "eslint": "eslint ."
+  },
+  "dependencies": {
+    "@frontend/graphql-factory": "workspace:*"
+  }
+}
