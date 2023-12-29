@@ -10,7 +10,9 @@ export const signJwt = <T extends string | object | Buffer>({
   expiresIn = process.env.JWT_EXP_IN_SECONDS,
   subject = undefined,
 }: SignJwtProps<T>) => {
-  const options: jwt.SignOptions = { expiresIn };
+  const options: jwt.SignOptions = {
+    expiresIn: typeof expiresIn === "string" ? parseInt(expiresIn) : expiresIn,
+  };
   if (subject) {
     options.subject = subject;
   }

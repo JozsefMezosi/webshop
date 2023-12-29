@@ -1,4 +1,4 @@
-import { LoginUserResult, UserRoles } from "user-model";
+import { UserLoginResult, UserRoles } from "user-model";
 import { createAuthToken } from "./create-auth-token";
 import { signJwt } from "./sign-jwt";
 import { getExpireDate } from "./get-expire-date";
@@ -11,7 +11,7 @@ interface CreateAuthAndRefreshTokensProps {
 export const createAuthAndRefreshTokens = ({
   email,
   roles,
-}: CreateAuthAndRefreshTokensProps): LoginUserResult["tokens"] => {
+}: CreateAuthAndRefreshTokensProps): UserLoginResult["tokens"] => {
   const jwtExp = parseInt(process.env.JWT_EXP_IN_SECONDS);
   const refreshTokenExpInSeconds = parseInt(
     process.env.JWT_REFRESH_TOKEN_EXP_IN_SECONDS
@@ -25,6 +25,7 @@ export const createAuthAndRefreshTokens = ({
 
   const now = new Date();
   const authTokenExp = getExpireDate({ now, secondsToAdd: jwtExp });
+
   const refreshTokenExp = getExpireDate({
     now,
     secondsToAdd: refreshTokenExpInSeconds,

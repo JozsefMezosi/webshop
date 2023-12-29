@@ -21,7 +21,7 @@ export type LoginUserDto = Pick<UserData, "email" | "password">;
 
 export type TokenResult = { value: string; expire: number };
 export type TokenResultWithRoles = TokenResult & { roles: UserRoles[] };
-export interface LoginUserResult {
+export interface UserLoginResult {
   tokens: {
     authToken: TokenResult;
     refreshToken: TokenResult;
@@ -35,3 +35,7 @@ export interface LoginUserResult {
     };
   };
 }
+
+export type UserSession = Omit<UserLoginResult, "tokens"> & {
+  getToken: () => Promise<string | undefined>;
+};
