@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "typecheck": "tsc --noEmit",
-    "build": "typecheck && esbuild src/index.ts --bundle --platform=node --outfile=dist/index.js",
+    "build": "pnpm run typecheck && esbuild src/index.ts --bundle --platform=node --outfile=dist/index.js",
     "eslint": "eslint ."
   },
   "keywords": [],
