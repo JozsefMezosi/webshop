@@ -30,6 +30,7 @@ module.exports = {
       },
     },
   },
+  rules: { "react-hooks/exhaustive-deps": "error" },
   ignorePatterns: [
     // Ignore dotfiles
     ".*.js",
