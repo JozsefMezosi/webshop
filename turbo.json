@@ -4,8 +4,7 @@
     "**/.env.*local"
   ],
   "globalEnv": [
-    "NEXT_PUBLIC_AUTH_SERVICE_URL",
-    "NEXTAUTH_SECRET"
+    "NODE_ENV"
   ],
   "pipeline": {
     "build": {

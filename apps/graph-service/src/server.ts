@@ -36,6 +36,7 @@ const main = async () => {
       typeDefs: [typeDefs, userTypeDefs, productTypeDefs, orderTypeDefs],
       driver,
       resolvers,
+      debug: true,
       features: {
         authorization: {
           verify: true,
@@ -46,6 +47,7 @@ const main = async () => {
 
     const server = new ApolloServer({
       schema: await neoSchema.getSchema(),
+
       plugins: [
         // Install a landing page plugin based on NODE_ENV
         process.env.NODE_ENV === "production"

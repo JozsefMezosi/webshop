@@ -2,25 +2,27 @@
 
 import { FunctionComponent, useCallback } from "react";
 import { ArrowLeftEndOnRectangleIcon } from "@heroicons/react/24/outline";
-import { signOut, useSession } from "next-auth/react";
+
 import { useRouter } from "next/navigation";
+import { logout, useSession } from "../../../authentication/src";
 
 interface LogoutButtonProps {
   className?: string;
   userName?: string;
 }
+
 export const LogoutButton: FunctionComponent<LogoutButtonProps> = ({
   className,
 }) => {
   const router = useRouter();
-  const logoutAction = useCallback(async () => {
-    await signOut({ redirect: false });
+  const logoutAction = useCallback(() => {
+    logout();
     router.push("/");
   }, [router]);
 
-  const user = useSession();
+  const session = useSession();
 
-  if (user.status === "unauthenticated") {
+  if (!session) {
     return null;
   }
 

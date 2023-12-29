@@ -7,7 +7,7 @@ import {
   EnvelopeIcon,
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
-import { useRegisterUser } from "./user-register-user";
+import { useRegisterUser } from "./use-register-user";
 
 export const RegisterForm = () => {
   const {

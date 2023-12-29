@@ -12,8 +12,7 @@
     "next.config.js",
     "**/*.ts",
     "**/*.tsx",
-    ".next/types/**/*.ts",
-    "../../packages/frontend/authentication-view/src/logout/logout-button.tsx"
+    ".next/types/**/*.ts"
   ],
   "exclude": [
     "node_modules"

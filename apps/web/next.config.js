@@ -1,9 +1,13 @@
 /** @type {import('next').NextConfig} */
 module.exports = {
-  "transpilePackages": [
+  transpilePackages: [
     "@frontend/form-components",
     "@tailwind/config",
     "@frontend/authentication-view",
-    "@frontend/toast-context"
-  ]
-}
+    "@frontend/authentication",
+    "@frontend/authentication-server",
+    "@frontend/toast-context",
+    "@frontend/graphql-client",
+    "@frontend/product-management",
+  ],
+};

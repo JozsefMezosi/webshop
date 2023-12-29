@@ -6,9 +6,9 @@ import {
 } from "react";
 import { UseFormRegisterReturn } from "react-hook-form";
 import cl from "classnames";
-import { InputError } from "./components/input-error";
+import { InputError } from "../components/input-error";
 import { InputIcon } from "./components/input-icon";
-import { InputLabel } from "./components/input-label";
+import { InputLabel } from "../components/input-label";
 type InputProps<T extends string> = UseFormRegisterReturn<T> &
   InputHTMLAttributes<HTMLInputElement> & {
     label?: string;

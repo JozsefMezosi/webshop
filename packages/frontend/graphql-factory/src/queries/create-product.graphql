@@ -1,0 +1,26 @@
+mutation createProduct(
+  $name: String!
+  $description: String!
+  $details: Object
+  $imageUrls: [String!]!
+  $priceInEuro: Float!
+) {
+  createProducts(
+    input: {
+      description: $description
+      details: $details
+      imageUrls: $imageUrls
+      name: $name
+      priceInEuro: $priceInEuro
+    }
+  ) {
+    products {
+      id
+      description
+      details
+      imageUrls
+      name
+      priceInEuro
+    }
+  }
+}

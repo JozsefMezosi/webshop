@@ -1,3 +1,18 @@
-import { withAuthMiddleware } from "@frontend/authentication-view";
+import { getSession } from "@frontend/authentication-server";
+import { NextRequest, NextResponse } from "next/server";
 
-export default withAuthMiddleware;
+const pagesWithoutToken = ["/login", "/register"];
+
+export async function middleware(request: NextRequest) {
+  const { nextUrl, url } = request;
+
+  const session = await getSession();
+
+  if (pagesWithoutToken.includes(nextUrl.pathname)) {
+    if (session) {
+      return NextResponse.redirect(new URL("/", url));
+    }
+  }
+
+  return NextResponse.next();
+}

@@ -25,9 +25,8 @@ export const generateBasePackageJson = ({
     packageJson.type = "module";
     packageJson.scripts = {
       ...(packageJson.scripts as Record<string, string>),
-      typecheck: "tsc --noEmit",
-      build:
-        "typecheck && esbuild src/index.ts --bundle --platform=node --outfile=dist/index.js",
+
+      build: "tsc --noEmit",
     };
   }
 
