@@ -15,7 +15,7 @@ export const generateBasePackageJson = ({
     type: "module",
     scripts: { eslint: "eslint ." },
     devDependencies: {
-      "@repo/eslint-config": "workspace:*",
+      "@config/eslint-config": "workspace:*",
       "@repo/typescript-config": "workspace:*",
       typescript: "5.3.3",
     },

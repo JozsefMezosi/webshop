@@ -9,7 +9,7 @@
     "eslint": "eslint ."
   },
   "devDependencies": {
-    "@repo/eslint-config": "workspace:*",
+    "@config/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
     "@tailwind/config": "workspace:*",
     "@turbo/gen": "1.10.12",

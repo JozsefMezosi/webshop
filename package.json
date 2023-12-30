@@ -18,8 +18,8 @@
     "node": ">=18"
   },
   "dependencies": {
+    "@config/eslint-config": "0.0.0",
     "@manypkg/cli": "latest",
-    "@repo/eslint-config": "0.0.0",
     "@repo/typescript-config": "0.0.0",
     "@turbo/gen": "1.10.12",
     "@types/node": "20.10.5",

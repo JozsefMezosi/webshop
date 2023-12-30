@@ -11,7 +11,7 @@
     "start": "node dist/server.cjs"
   },
   "devDependencies": {
-    "@repo/eslint-config": "workspace:*",
+    "@config/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
     "@types/bcrypt": "5.0.2",
     "@types/cors": "2.8.17",
