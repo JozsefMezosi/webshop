@@ -1,4 +1,4 @@
-import { UserLoginResult } from "user-model";
+import { UserLoginResult } from "@common/user-model";
 import { getSessionFromCookies } from "../utils/get-session-from-cookies";
 import { refreshTokenAndReturnNewSession } from "../utils/refresh-token-and-return-new-session";
 

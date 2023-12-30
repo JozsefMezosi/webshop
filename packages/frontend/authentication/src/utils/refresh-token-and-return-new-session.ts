@@ -1,4 +1,4 @@
-import { TokenResult, TokenResultWithRoles, UserLoginResult } from "user-model";
+import { TokenResult, TokenResultWithRoles, UserLoginResult } from "@common/user-model";
 import { authService } from "../service/axios/auth.service";
 import { Session } from "../cookie-store/session";
 

@@ -1,4 +1,4 @@
-import { LoginUserDto } from "user-model";
+import { LoginUserDto } from "@common/user-model";
 import { ApiError } from "../../../model/api-error";
 import { HTTP_STATUS_CODES } from "@common/http-status-codes";
 

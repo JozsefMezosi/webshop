@@ -2,7 +2,7 @@
 
 import { Input, PrimaryButton } from "@frontend/form-components";
 import { useForm } from "react-hook-form";
-import { LoginUserDto } from "user-model";
+import { LoginUserDto } from "@common/user-model";
 import { useUserLogin } from "./hooks/use-user-login";
 import Link from "next/link";
 import { EnvelopeIcon, LockClosedIcon } from "@heroicons/react/24/outline";

@@ -1,6 +1,6 @@
 import { Input, PrimaryButton } from "@frontend/form-components";
 import { useForm } from "react-hook-form";
-import { RegisterUserDto } from "user-model";
+import { RegisterUserDto } from "@common/user-model";
 import {
   UserIcon,
   LockClosedIcon,

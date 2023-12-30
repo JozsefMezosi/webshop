@@ -25,6 +25,7 @@ importers:
   apps/auth-service:
     specifiers:
       '@common/http-status-codes': workspace:^1.0.0
+      '@common/user-model': workspace:*
       '@repo/eslint-config': workspace:*
       '@repo/typescript-config': workspace:*
       '@types/bcrypt': 5.0.2
@@ -45,10 +46,10 @@ importers:
       ts-node: 10.9.2
       tslib: 2.6.2
       typescript: 5.3.3
-      user-model: workspace:*
       zod: 3.22.4
     dependencies:
       '@common/http-status-codes': link:../../packages/common/http-status-codes
+      '@common/user-model': link:../../packages/common/user-model
       bcrypt: 5.1.1
       cors: 2.8.5
       database-core: link:../../packages/backend/database-core
@@ -57,7 +58,6 @@ importers:
       joi: 17.11.0
       jsonwebtoken: 9.0.2
       logger: link:../../packages/backend/logger
-      user-model: link:../../packages/common/user-model
       zod: 3.22.4
     devDependencies:
       '@repo/eslint-config': link:../../packages/configs/eslint-config
@@ -76,6 +76,7 @@ importers:
   apps/graph-service:
     specifiers:
       '@apollo/server': 4.9.5
+      '@common/user-model': workspace:*
       '@graphql-tools/schema': 10.0.2
       '@graphql-tools/utils': 10.0.11
       '@neo4j/graphql': 4.4.4
@@ -91,10 +92,10 @@ importers:
       nodemon: 3.0.2
       ts-node: 10.9.2
       typescript: 5.3.3
-      user-model: workspace:*
       zod: 3.22.4
     dependencies:
       '@apollo/server': 4.9.5_graphql@16.8.1
+      '@common/user-model': link:../../packages/common/user-model
       '@graphql-tools/schema': 10.0.2_graphql@16.8.1
       '@graphql-tools/utils': 10.0.11_graphql@16.8.1
       '@neo4j/graphql': 4.4.4_2cvieehw7drbkw3cbaz6h4uf74
@@ -103,7 +104,6 @@ importers:
       graphql: 16.8.1
       logger: link:../../packages/backend/logger
       neo4j-driver: 5.15.0
-      user-model: link:../../packages/common/user-model
       zod: 3.22.4
     devDependencies:
       '@repo/eslint-config': link:../../packages/configs/eslint-config
@@ -116,6 +116,7 @@ importers:
 
   apps/web:
     specifiers:
+      '@common/user-model': workspace:*
       '@emotion/react': 11.11.1
       '@emotion/styled': 11.11.0
       '@frontend/authentication': workspace:*
@@ -146,8 +147,8 @@ importers:
       tailwind: 4.0.0
       tailwindcss: 3.4.0
       typescript: 5.3.3
-      user-model: workspace:*
     dependencies:
+      '@common/user-model': link:../../packages/common/user-model
       '@emotion/react': 11.11.1_z4nlbosket4bvhe4v4om5c6scu
       '@emotion/styled': 11.11.0_ydn2erfhrvrlc2jn3xvhuakxly
       '@frontend/authentication': link:../../packages/frontend/authentication
@@ -163,7 +164,6 @@ importers:
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       react-hook-form: 7.49.2_react@18.2.0
-      user-model: link:../../packages/common/user-model
     devDependencies:
       '@next/eslint-plugin-next': 14.0.2
       '@repo/eslint-config': link:../../packages/configs/eslint-config
@@ -282,6 +282,7 @@ importers:
   packages/frontend/authentication:
     specifiers:
       '@common/http-status-codes': workspace:1.0.0
+      '@common/user-model': workspace:1.0.0
       '@repo/eslint-config': workspace:*
       '@repo/typescript-config': workspace:*
       '@types/js-cookie': 3.0.6
@@ -291,14 +292,13 @@ importers:
       js-cookie: 3.0.5
       react: 18.2.0
       typescript: 5.3.3
-      user-model: workspace:1.0.0
     dependencies:
       '@common/http-status-codes': link:../../common/http-status-codes
+      '@common/user-model': link:../../common/user-model
       '@types/js-cookie': 3.0.6
       axios: 1.6.2
       js-cookie: 3.0.5
       react: 18.2.0
-      user-model: link:../../common/user-model
     devDependencies:
       '@repo/eslint-config': link:../../configs/eslint-config
       '@repo/typescript-config': link:../../configs/typescript-config
@@ -309,6 +309,7 @@ importers:
   packages/frontend/authentication-server:
     specifiers:
       '@common/http-status-codes': workspace:1.0.0
+      '@common/user-model': workspace:1.0.0
       '@repo/eslint-config': workspace:*
       '@repo/typescript-config': workspace:*
       '@types/node': 20.10.5
@@ -319,14 +320,13 @@ importers:
       react: 18.2.0
       react-dom: 18.2.0
       typescript: 5.3.3
-      user-model: workspace:1.0.0
     dependencies:
       '@common/http-status-codes': link:../../common/http-status-codes
+      '@common/user-model': link:../../common/user-model
       axios: 1.6.2
       next: 14.0.3_biqbaboplfbrettd7655fr4n2y
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
-      user-model: link:../../common/user-model
     devDependencies:
       '@repo/eslint-config': link:../../configs/eslint-config
       '@repo/typescript-config': link:../../configs/typescript-config
@@ -338,6 +338,7 @@ importers:
   packages/frontend/authentication-view:
     specifiers:
       '@common/http-status-codes': workspace:1.0.0
+      '@common/user-model': workspace:*
       '@frontend/authentication': workspace:1.0.0
       '@frontend/form-components': workspace:1.0.0
       '@frontend/toast-context': workspace:1.0.0
@@ -357,9 +358,9 @@ importers:
       sass: 1.69.5
       tailwind: 4.0.0
       typescript: 5.3.3
-      user-model: workspace:*
     dependencies:
       '@common/http-status-codes': link:../../common/http-status-codes
+      '@common/user-model': link:../../common/user-model
       '@frontend/authentication': link:../authentication
       '@frontend/form-components': link:../form-components
       '@frontend/toast-context': link:../toast-context
@@ -369,7 +370,6 @@ importers:
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       react-hook-form: 7.49.2_react@18.2.0
-      user-model: link:../../common/user-model
     devDependencies:
       '@repo/eslint-config': link:../../configs/eslint-config
       '@repo/typescript-config': link:../../configs/typescript-config

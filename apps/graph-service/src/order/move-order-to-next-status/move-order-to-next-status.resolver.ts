@@ -1,6 +1,6 @@
 import { moveOrderToNextStatusQuery } from "./move-order-to-next-status.query";
 import { validateRoles } from "../../utils/validate-roles";
-import { UserRoles } from "user-model";
+import { UserRoles } from "@common/user-model";
 
 export const MoveOrderToNextStatus = async (
   _: never,

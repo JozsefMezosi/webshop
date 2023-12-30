@@ -1,6 +1,6 @@
 import Joi from "joi";
 import { userExists } from "../../queries/user-exists";
-import { UserData } from "user-model";
+import { UserData } from "@common/user-model";
 
 export const validateUserRegisterDataSchema = Joi.object<UserData>({
   email: Joi.string()

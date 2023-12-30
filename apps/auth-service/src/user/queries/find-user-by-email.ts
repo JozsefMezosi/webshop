@@ -1,4 +1,4 @@
-import { UserData } from "user-model";
+import { UserData } from "@common/user-model";
 import { runQuery } from "../../utils/run-query";
 
 export const findUserByEmail = async (

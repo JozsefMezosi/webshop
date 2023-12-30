@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "@apollo/server": "4.9.5",
+    "@common/user-model": "workspace:*",
     "@graphql-tools/schema": "10.0.2",
     "@graphql-tools/utils": "10.0.11",
     "@neo4j/graphql": "4.4.4",
@@ -34,7 +35,6 @@
     "graphql": "16.8.1",
     "logger": "workspace:*",
     "neo4j-driver": "5.15.0",
-    "user-model": "workspace:*",
     "zod": "3.22.4"
   }
 }

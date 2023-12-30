@@ -1,4 +1,4 @@
-import { RegisterUserDto } from "user-model";
+import { RegisterUserDto } from "@common/user-model";
 import { useRouter } from "next/navigation";
 import { useToast } from "@frontend/toast-context";
 import { registerUser } from "../../../authentication/src";

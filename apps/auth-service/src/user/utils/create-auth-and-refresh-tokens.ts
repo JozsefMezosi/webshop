@@ -1,4 +1,4 @@
-import { UserLoginResult, UserRoles } from "user-model";
+import { UserLoginResult, UserRoles } from "@common/user-model";
 import { createAuthToken } from "./create-auth-token";
 import { signJwt } from "./sign-jwt";
 import { getExpireDate } from "./get-expire-date";

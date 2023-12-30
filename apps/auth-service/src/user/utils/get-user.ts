@@ -2,7 +2,7 @@ import { compare } from "bcrypt";
 import { ApiError } from "../../model/api-error";
 import { HTTP_STATUS_CODES } from "@common/http-status-codes";
 import { findUserByEmail } from "../queries/find-user-by-email";
-import { LoginUserDto } from "user-model";
+import { LoginUserDto } from "@common/user-model";
 
 export const getUser = async ({ email, password }: LoginUserDto) => {
   const user = await findUserByEmail(email);

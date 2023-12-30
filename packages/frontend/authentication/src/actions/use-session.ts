@@ -1,4 +1,4 @@
-import { UserSession } from "user-model";
+import { UserSession } from "@common/user-model";
 import { Session } from "../cookie-store/session";
 import { useEffect, useId, useState } from "react";
 export const useSession = () => {

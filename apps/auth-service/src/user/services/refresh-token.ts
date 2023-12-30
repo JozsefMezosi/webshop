@@ -4,7 +4,7 @@ import { forbiddenError } from "../../model/forbidden-error";
 import { verifyJwt } from "../utils/verify-jwt";
 import { createAuthToken } from "../utils/create-auth-token";
 import { getExpireDate } from "../utils/get-expire-date";
-import { TokenResultWithRoles } from "user-model";
+import { TokenResultWithRoles } from "@common/user-model";
 
 export const refreshToken = async (
   req: Request

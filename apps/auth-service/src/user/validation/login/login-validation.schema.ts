@@ -1,5 +1,5 @@
 import Joi from "joi";
-import { LoginUserDto } from "user-model";
+import { LoginUserDto } from "@common/user-model";
 
 export const validateLoginUserDtoSchema = Joi.object<LoginUserDto>({
   email: Joi.string().max(256).email().required().trim(),

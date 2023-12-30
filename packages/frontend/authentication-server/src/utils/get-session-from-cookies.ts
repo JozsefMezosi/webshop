@@ -1,5 +1,5 @@
 import { cookies } from "next/headers";
-import { UserLoginResult } from "user-model";
+import { UserLoginResult } from "@common/user-model";
 import { UserLoginResultCookieName } from "../models/user-session-cookie-name";
 
 export const getSessionFromCookies = () => {

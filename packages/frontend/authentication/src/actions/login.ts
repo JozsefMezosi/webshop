@@ -1,4 +1,4 @@
-import { UserLoginResult, UserLoginDto } from "user-model";
+import { UserLoginResult, UserLoginDto } from "@common/user-model";
 import { authService } from "../service/axios/auth.service";
 import { AxiosError } from "axios";
 import { Session } from "../cookie-store/session";

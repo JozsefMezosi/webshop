@@ -1,4 +1,4 @@
-import { RegisterUserDto } from "user-model";
+import { RegisterUserDto } from "@common/user-model";
 import { runQuery } from "../../utils/run-query";
 
 export const createUser = async (userData: RegisterUserDto) => {

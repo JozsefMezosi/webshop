@@ -1,4 +1,4 @@
-import { RegisterUserDto } from "user-model";
+import { RegisterUserDto } from "@common/user-model";
 import { authService } from "../service/axios/auth.service";
 import { AxiosError } from "axios";
 

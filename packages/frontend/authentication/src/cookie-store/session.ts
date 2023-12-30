@@ -1,5 +1,9 @@
 import Cookies from "js-cookie";
-import { TokenResultWithRoles, UserLoginResult, UserSession } from "user-model";
+import {
+  TokenResultWithRoles,
+  UserLoginResult,
+  UserSession,
+} from "@common/user-model";
 import { UserLoginResultCookieName } from "./user-session-cookie-name";
 import { authService } from "../service/axios/auth.service";
 

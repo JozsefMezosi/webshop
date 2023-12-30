@@ -1,4 +1,4 @@
-import { UserRoles } from "user-model";
+import { UserRoles } from "@common/user-model";
 import { signJwt } from "./sign-jwt";
 
 interface CreateAuthTokenProps {

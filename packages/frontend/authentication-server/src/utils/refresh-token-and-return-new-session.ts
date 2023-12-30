@@ -1,4 +1,4 @@
-import { TokenResultWithRoles, UserLoginResult } from "user-model";
+import { TokenResultWithRoles, UserLoginResult } from "@common/user-model";
 
 export const refreshTokenAndReturnNewSession = async (
   oldSession: UserLoginResult
