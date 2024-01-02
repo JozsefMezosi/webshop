@@ -15,6 +15,7 @@ export const useUserLogin = (errorSetter: UseFormSetError<LoginUserDto>) => {
       router.push("/");
     } catch (error) {
       if (error instanceof Error) {
+        errorSetter("email", { message: EmailOrPasswordMismatchMessage });
         toast.error(error.message);
       }
     }

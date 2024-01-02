@@ -1,0 +1,10 @@
+{
+  "root": true,
+  "extends": [
+    "@config/eslint-config/react-internal.js"
+  ],
+  "ignorePatterns": [
+    "sdk"
+  ],
+  "parser": "@typescript-eslint/parser"
+}

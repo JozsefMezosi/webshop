@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "build": "tsc --noEmit",
-    "eslint": "eslint ."
+    "eslint": "eslint . --max-warnings 0"
   },
   "dependencies": {
     "@frontend/graphql-factory": "workspace:*"

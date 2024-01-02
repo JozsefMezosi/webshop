@@ -1,10 +1,4 @@
-import {
-  ForwardedRef,
-  InputHTMLAttributes,
-  ReactNode,
-  TextareaHTMLAttributes,
-  forwardRef,
-} from "react";
+import { TextareaHTMLAttributes } from "react";
 import { UseFormRegisterReturn } from "react-hook-form";
 import cl from "classnames";
 import { InputLabel } from "../components/input-label";
@@ -48,5 +42,3 @@ export const TextAreaComponent = <T extends string>(
     </div>
   );
 };
-
-/* export const TextArea = forwardRef(InputComponent); */

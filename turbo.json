@@ -4,7 +4,9 @@
     "**/.env.*local"
   ],
   "globalEnv": [
-    "NODE_ENV"
+    "NODE_ENV",
+    "NEXT_PUBLIC_GRAPHQL_SERVICE",
+    "NEXT_PUBLIC_AUTH_SERVICE_URL"
   ],
   "pipeline": {
     "build": {
@@ -17,11 +19,7 @@
         "dist/**"
       ]
     },
-    "lint": {
-      "dependsOn": [
-        "^eslint"
-      ]
-    },
+    "eslint": {},
     "dev": {
       "cache": false,
       "persistent": true

@@ -13,7 +13,7 @@ export const generateBasePackageJson = ({
     main: "src/index.ts",
     types: "src/index.ts",
     type: "module",
-    scripts: { eslint: "eslint ." },
+    scripts: { eslint: "eslint . --max-warnings 0" },
     devDependencies: {
       "@config/eslint-config": "workspace:*",
       "@repo/typescript-config": "workspace:*",

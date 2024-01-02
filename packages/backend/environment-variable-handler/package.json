@@ -6,7 +6,7 @@
   "types": "src/index.ts",
   "scripts": {
     "build": "tsc --noEmit",
-    "eslint": "eslint ."
+    "eslint": "eslint . --max-warnings 0"
   },
   "keywords": [],
   "type": "module",

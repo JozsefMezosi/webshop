@@ -14,7 +14,12 @@ const project = resolve(process.cwd(), "tsconfig.json");
 
 /** @type {import("eslint").Linter.Config} */
 module.exports = {
-  extends: ["eslint:recommended", "prettier", "eslint-config-turbo"],
+  extends: [
+    "eslint:recommended",
+    "prettier",
+    "eslint-config-turbo",
+    "plugin:@typescript-eslint/recommended",
+  ],
   plugins: ["only-warn", "react", "react-hooks"],
   globals: {
     React: true,
@@ -22,6 +27,7 @@ module.exports = {
   },
   env: {
     browser: true,
+    node: true,
   },
   settings: {
     "import/resolver": {
@@ -30,7 +36,11 @@ module.exports = {
       },
     },
   },
-  rules: { "react-hooks/exhaustive-deps": "error" },
+  rules: {
+    "react-hooks/exhaustive-deps": "error",
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": ["error"],
+  },
   ignorePatterns: [
     // Ignore dotfiles
     ".*.js",

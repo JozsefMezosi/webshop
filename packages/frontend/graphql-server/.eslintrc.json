@@ -1,7 +1,7 @@
-module.exports = {
+{
   "root": true,
   "extends": [
-    "@repo/eslint-config/next.js"
+    "@config/eslint-config/react-internal.js"
   ],
   "parser": "@typescript-eslint/parser"
 }

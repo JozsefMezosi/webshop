@@ -7,7 +7,7 @@ export const generateBaseEslintJson = (
   if (type === projectTypes.backend) {
     return {
       root: true,
-      extends: ["@repo/eslint-config/backend.js"],
+      extends: ["@config/eslint-config/backend.js"],
       parser: "@typescript-eslint/parser",
       parserOptions: {
         project: true,
@@ -19,8 +19,8 @@ export const generateBaseEslintJson = (
     root: true,
     extends: [
       isNextJs
-        ? "@repo/eslint-config/next.js"
-        : "@repo/eslint-config/react-internal.js",
+        ? "@config/eslint-config/next.js"
+        : "@config/eslint-config/react-internal.js",
     ],
     parser: "@typescript-eslint/parser",
   };
