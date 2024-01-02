@@ -1,21 +1,9 @@
-import {
-  ForwardedRef,
-  InputHTMLAttributes,
-  ReactNode,
-  forwardRef,
-} from "react";
-import { UseFormRegisterReturn } from "react-hook-form";
+import { ForwardedRef, forwardRef } from "react";
 import cl from "classnames";
 import { InputError } from "../components/input-error";
 import { InputIcon } from "./components/input-icon";
 import { InputLabel } from "../components/input-label";
-type InputProps<T extends string> = UseFormRegisterReturn<T> &
-  InputHTMLAttributes<HTMLInputElement> & {
-    label?: string;
-    containerClassName?: string;
-    icon?: ReactNode;
-    error?: string;
-  };
+import { InputIconPlace, InputProps } from "./model/input.model";
 
 const InputComponent = <T extends string>(
   {
@@ -26,6 +14,7 @@ const InputComponent = <T extends string>(
     containerClassName,
     icon,
     error,
+    iconPlacement = InputIconPlace.left,
     ...props
   }: InputProps<T>,
   ref: ForwardedRef<HTMLInputElement>
@@ -34,7 +23,7 @@ const InputComponent = <T extends string>(
     <div className={cl("grid gap-1 group", containerClassName)}>
       <InputLabel id={id} label={label} />
       <div className="relative">
-        <InputIcon icon={icon} error={error} />
+        <InputIcon icon={icon} error={error} iconPlacement={iconPlacement} />
         <input
           type={type}
           id={id}
@@ -44,7 +33,8 @@ const InputComponent = <T extends string>(
             "w-full border border-gray-700 rounded p-2",
             className,
             {
-              "pl-9": icon,
+              "pl-10": iconPlacement === InputIconPlace.left,
+              "pr-10": iconPlacement === InputIconPlace.right,
               "border-red-500 text-red-500": error,
             }
           )}
