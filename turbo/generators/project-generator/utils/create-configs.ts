@@ -3,19 +3,18 @@ import { createTypescriptConfig } from "./typescript-config/create-typescript-co
 import { CreateConfig } from "../model/create-config.model";
 import { projectTypes } from "../model/project-type.model";
 import { createTailwindConfig } from "./create-tailwind-config";
-import { createPostCssConfig } from "./create-post-css-config";
 
 export const createConfigFiles = ({
   projectPath,
   type,
   isNextJs,
+  isTailwind,
 }: CreateConfig) => {
   createEslintConfig({ projectPath, type, isNextJs });
 
   createTypescriptConfig({ projectPath, type });
 
-  if (type === projectTypes.frontend) {
+  if (isTailwind) {
     createTailwindConfig(projectPath);
-    createPostCssConfig(projectPath);
   }
 };

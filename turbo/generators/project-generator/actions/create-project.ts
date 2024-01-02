@@ -24,7 +24,12 @@ export const createProject: PlopTypes.CustomActionFunction = async (
 
   createPackageJson({ answers, projectPath });
 
-  createConfigFiles({ projectPath, type, isNextJs: answers.isNextJs });
+  createConfigFiles({
+    projectPath,
+    type,
+    isNextJs: answers.isNextJs,
+    isTailwind: answers.isTailwind,
+  });
 
   addProjectToWebApp(answers);
 

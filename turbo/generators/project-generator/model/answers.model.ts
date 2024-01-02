@@ -7,6 +7,7 @@ export interface Answers {
   isNextJs?: boolean;
   logger?: boolean;
   addToApp?: boolean;
+  isTailwind?: boolean;
   turbo: {
     paths: {
       root: string;

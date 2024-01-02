@@ -1,7 +1,6 @@
+import { Answers } from "./answers.model";
 import { ProjectType } from "./project-type.model";
 
-export interface CreateConfig {
-  type: ProjectType;
+export type CreateConfig = Pick<Answers, "type" | "isNextJs" | "isTailwind"> & {
   projectPath: string;
-  isNextJs?: boolean;
-}
+};

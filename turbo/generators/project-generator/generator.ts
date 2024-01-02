@@ -40,6 +40,12 @@ export const projectGenerator = (plop: PlopTypes.NodePlopAPI) =>
         when: isTypeValidation(projectTypes.frontend),
       },
       {
+        type: "confirm",
+        name: "isTailwind",
+        message: "Do you want to add tailwind to the project?",
+        when: isTypeValidation(projectTypes.frontend),
+      },
+      {
         type: "input",
         name: "projectName",
         message: "What is the name of the new project to create?",
