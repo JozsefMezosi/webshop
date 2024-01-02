@@ -14,7 +14,7 @@ const InputComponent = <T extends string>(
     containerClassName,
     icon,
     error,
-    iconPlacement = InputIconPlace.left,
+    iconPlacement = icon ? InputIconPlace.left : undefined,
     ...props
   }: InputProps<T>,
   ref: ForwardedRef<HTMLInputElement>

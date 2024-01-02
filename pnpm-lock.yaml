@@ -491,6 +491,7 @@ importers:
       '@config/eslint-config': workspace:*
       '@frontend/form-components': workspace:1.0.0
       '@frontend/graphql-models': workspace:1.0.0
+      '@heroicons/react': 2.1.1
       '@repo/typescript-config': workspace:*
       '@types/node': 20.10.5
       '@types/react': 18.0.2
@@ -503,6 +504,7 @@ importers:
     dependencies:
       '@frontend/form-components': link:../form-components
       '@frontend/graphql-models': link:../graphql-models
+      '@heroicons/react': 2.1.1_react@18.2.0
       next: 14.0.3_biqbaboplfbrettd7655fr4n2y
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0

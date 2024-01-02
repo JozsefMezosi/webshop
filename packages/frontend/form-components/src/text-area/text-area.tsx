@@ -3,6 +3,7 @@ import { UseFormRegisterReturn } from "react-hook-form";
 import cl from "classnames";
 import { InputLabel } from "../components/input-label";
 import { InputError } from "../components/input-error";
+import { ForwardedRef, forwardRef } from "react";
 
 type InputProps<T extends string> = UseFormRegisterReturn<T> &
   TextareaHTMLAttributes<HTMLTextAreaElement> & {
@@ -11,7 +12,7 @@ type InputProps<T extends string> = UseFormRegisterReturn<T> &
     error?: string;
   };
 
-export const TextAreaComponent = <T extends string>(
+const TextAreaComponent = <T extends string>(
   {
     label,
     id,
@@ -20,8 +21,8 @@ export const TextAreaComponent = <T extends string>(
     containerClassName,
     error,
     ...props
-  }: InputProps<T>
-  /*  ref: ForwardedRef<HTMLInputElement> */
+  }: InputProps<T>,
+  ref: ForwardedRef<HTMLTextAreaElement>
 ) => {
   return (
     <div className={cl("grid gap-1 group", containerClassName)}>
@@ -29,16 +30,14 @@ export const TextAreaComponent = <T extends string>(
       <textarea
         id={id}
         {...props}
-        className={cl(
-          "w-full border border-gray-700 rounded p-2 resize-none",
-          className,
-          {
-            "border-red-500 text-red-500": error,
-          }
-        )}
+        ref={ref}
+        className={cl("w-full border border-gray-700 rounded p-2", className, {
+          "border-red-500 text-red-500": error,
+        })}
       />
 
       <InputError message={error} />
     </div>
   );
 };
+export const TextArea = forwardRef(TextAreaComponent);

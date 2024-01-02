@@ -6,12 +6,12 @@ import { InputIconPlace } from "../model/input.model";
 interface InputIconProps {
   icon: ReactNode | undefined;
   error: string | undefined;
-  iconPlacement: InputIconPlace;
+  iconPlacement: InputIconPlace | undefined;
 }
 export const InputIcon: FunctionComponent<InputIconProps> = ({
   icon,
   error,
-  iconPlacement,
+  iconPlacement = InputIconPlace.left,
 }) => {
   if (!icon && !error) {
     return null;
@@ -19,7 +19,7 @@ export const InputIcon: FunctionComponent<InputIconProps> = ({
   return (
     <div
       className={cl(
-        "w-6 absolute top-1/2  -translate-y-1/2 transform *:text-gray-500",
+        "w-6 absolute top-1/2 -translate-y-1/2 transform *:text-gray-500",
         {
           "*:text-red-500": error,
           "left-2": iconPlacement === InputIconPlace.left,
