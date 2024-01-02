@@ -6,6 +6,7 @@ interface PrimaryButtonProps {
   className?: string;
   isSecondary?: boolean;
   icon?: ReactElement;
+  onClick?: () => void;
 }
 
 export const PrimaryButton: FunctionComponent<PrimaryButtonProps> = ({
@@ -13,9 +14,11 @@ export const PrimaryButton: FunctionComponent<PrimaryButtonProps> = ({
   text,
   className,
   icon,
+  onClick,
   isSecondary = false,
 }) => (
   <button
+    onClick={onClick}
     type={type}
     className={cl(
       "border border-gray-700 rounded px-10 py-2 hover:bg-slate-100 flex justify-between",

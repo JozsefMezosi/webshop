@@ -4,7 +4,7 @@ import { CreateProduct, Product } from "@frontend/graphql-models";
 import { useForm } from "react-hook-form";
 import { Images } from "./components/images";
 import { DetailsTable } from "./components/details-table";
-import { FunctionComponent } from "react";
+import { FunctionComponent, useCallback } from "react";
 
 interface AdminProductPageProps {
   product?: Product;
@@ -12,7 +12,14 @@ interface AdminProductPageProps {
 export const AdminProductPage: FunctionComponent<AdminProductPageProps> = ({
   product,
 }) => {
-  const { register } = useForm<CreateProduct>({ values: product });
+  const { register, setValue, control } = useForm<CreateProduct>({
+    defaultValues: product,
+  });
+
+  const setDetails = useCallback(
+    () => setValue.bind(null, "details"),
+    [setValue]
+  );
   return (
     <form className="grid grid-cols-3 justify-center gap-5 py-12 max-w-[90rem] mx-auto">
       <div className="gap-4 grid grid-cols-12 col-span-3">
@@ -33,10 +40,10 @@ export const AdminProductPage: FunctionComponent<AdminProductPageProps> = ({
           {...register("description")}
           containerClassName="col-span-12"
           className="h-44 resize-none"
-          placeholder="The Megaphone 123 64gb is the best phone in the world, buy it know, regret it later!"
+          placeholder="The Megaphone 123 64gb is the best phone in the world, buy it now, regret it later!"
         />
       </div>
-      <DetailsTable />
+      <DetailsTable setDetails={setDetails()} control={control} />
       <Images />
       <div className="col-span-3 justify-self-center md:justify-self-end">
         <PrimaryButton type="submit" text="Create product" />
