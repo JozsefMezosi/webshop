@@ -14,5 +14,11 @@ export async function middleware(request: NextRequest) {
     }
   }
 
+  if (nextUrl.pathname.startsWith("/admin")) {
+    if (!session) {
+      return NextResponse.redirect(new URL("/", url));
+    }
+  }
+
   return NextResponse.next();
 }
