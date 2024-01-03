@@ -1,4 +1,4 @@
-import { Input, PrimaryButton } from "@frontend/form-components";
+import { Input, Button } from "@frontend/form-components";
 import { useForm } from "react-hook-form";
 import { RegisterUserDto } from "@common/user-model";
 import {
@@ -64,7 +64,7 @@ export const RegisterForm = () => {
           containerClassName="w-96"
           placeholder="Doe"
         />
-        <PrimaryButton type="submit" text="Register" />
+        <Button type="submit" text="Register" />
       </form>
 
       <h2 className="text-center mt-8 text-sm  ">

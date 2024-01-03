@@ -1,6 +1,6 @@
 "use client";
 
-import { Input, PrimaryButton } from "@frontend/form-components";
+import { Input, Button } from "@frontend/form-components";
 import { useForm } from "react-hook-form";
 import { LoginUserDto } from "@common/user-model";
 import { useUserLogin } from "./hooks/use-user-login";
@@ -39,7 +39,7 @@ export const LoginForm = () => {
           type="password"
           placeholder="************"
         />
-        <PrimaryButton type="submit" text="Login" />
+        <Button type="submit" text="Login" />
       </form>
 
       <h2 className="text-center mt-8 lg:my-auto text-sm lg:text-lg ">
