@@ -1,25 +1,13 @@
-import { PrimaryButton } from "@frontend/form-components";
-import { CreateProduct, Product } from "@frontend/graphql-models";
+import { Button } from "@frontend/form-components";
 import { PlusIcon } from "@heroicons/react/24/outline";
-import { FunctionComponent } from "react";
-import { Control, useController } from "react-hook-form";
+import { addDetail } from "../store/details/services/add-detail";
+import { useStore } from "@nanostores/react";
+import { $details } from "../store/details/details.store";
 
-interface DetailsTableProps {
-  control: Control<CreateProduct, unknown>;
-  setDetails: (details: Product["details"]) => void;
-}
-export const DetailsTable: FunctionComponent<DetailsTableProps> = ({
-  control,
-  setDetails,
-}) => {
-  const { field } = useController({
-    control,
-    name: "details",
-  });
-  const details = field.value;
-
+export const DetailsTable = () => {
+  const details = useStore($details);
   const handleAddDetail = () =>
-    setDetails({ ...details, [Date.now()]: "test3" });
+    addDetail({ detailDescription: "test", detailName: Date.now().toString() });
   return (
     <div className="col-span-3">
       <div className="p-2">
@@ -35,12 +23,12 @@ export const DetailsTable: FunctionComponent<DetailsTableProps> = ({
             </div>
           )
         )}
-        <PrimaryButton
+        <Button
           type="button"
           onClick={handleAddDetail}
           text="Add detail"
           className="mt-8 ml-auto"
-          isSecondary
+          secondary
           icon={<PlusIcon />}
         />
       </div>

@@ -492,10 +492,12 @@ importers:
       '@frontend/form-components': workspace:1.0.0
       '@frontend/graphql-models': workspace:1.0.0
       '@heroicons/react': 2.1.1
+      '@nanostores/react': ^0.7.1
       '@repo/typescript-config': workspace:*
       '@types/node': 20.10.5
       '@types/react': 18.0.2
       '@types/react-dom': 18.0.2
+      nanostores: ^0.9.5
       next: 14.0.3
       react: 18.2.0
       react-dom: 18.2.0
@@ -505,6 +507,8 @@ importers:
       '@frontend/form-components': link:../form-components
       '@frontend/graphql-models': link:../graphql-models
       '@heroicons/react': 2.1.1_react@18.2.0
+      '@nanostores/react': 0.7.1_f7bn66ljxqyv426n5eme7tizfy
+      nanostores: 0.9.5
       next: 14.0.3_biqbaboplfbrettd7655fr4n2y
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
@@ -2644,6 +2648,17 @@ packages:
   /@microsoft/tsdoc/0.14.2:
     resolution: {integrity: sha512-9b8mPpKrfeGRuhFH5iO1iwCLeIIsV6+H1sRfxbkoGXIyQE2BTsPd9zqSqQJ+pv5sJ/hT5M1zvOFL02MnEezFug==}
     dev: true
+
+  /@nanostores/react/0.7.1_f7bn66ljxqyv426n5eme7tizfy:
+    resolution: {integrity: sha512-EXQg9N4MdI4eJQz/AZLIx3hxQ6BuBmV4Q55bCd5YCSgEOAW7tGTsIZxpRXxvxLXzflNvHTBvfrDNY38TlSVBkQ==}
+    engines: {node: ^16.0.0 || ^18.0.0 || >=20.0.0}
+    peerDependencies:
+      nanostores: ^0.9.0
+      react: '>=18.0.0'
+    dependencies:
+      nanostores: 0.9.5
+      react: 18.2.0
+    dev: false
 
   /@neo4j/cypher-builder/1.9.0:
     resolution: {integrity: sha512-UFk0Cgl9PQpOZpoKXDhymm7RZXIGVs3g8G0HfX021OEVczkzKl26+RxRvLhPQCpkX737doC/CrB6/JIYGFSa3A==}
@@ -7550,6 +7565,11 @@ packages:
     resolution: {integrity: sha512-eSRppjcPIatRIMC1U6UngP8XFcz8MQWGQdt1MTBQ7NaAmvXDfvNxbvWV3x2y6CdEUciCSsDHDQZbhYaB8QEo2g==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
+
+  /nanostores/0.9.5:
+    resolution: {integrity: sha512-Z+p+g8E7yzaWwOe5gEUB2Ox0rCEeXWYIZWmYvw/ajNYX8DlXdMvMDj8DWfM/subqPAcsf8l8Td4iAwO1DeIIRQ==}
+    engines: {node: ^16.0.0 || ^18.0.0 || >=20.0.0}
+    dev: false
 
   /natural-compare/1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}

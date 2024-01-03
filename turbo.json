@@ -6,7 +6,8 @@
   "globalEnv": [
     "NODE_ENV",
     "NEXT_PUBLIC_GRAPHQL_SERVICE",
-    "NEXT_PUBLIC_AUTH_SERVICE_URL"
+    "NEXT_PUBLIC_AUTH_SERVICE_URL",
+    "BLOB_READ_WRITE_TOKEN"
   ],
   "pipeline": {
     "build": {
