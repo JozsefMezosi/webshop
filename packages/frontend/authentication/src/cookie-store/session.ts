@@ -12,13 +12,17 @@ class SessionStorage {
   observers: Map<string, (session: UserSession | undefined) => void> =
     new Map();
 
-  session: UserLoginResult | undefined = this.getSession();
+  private session: UserLoginResult | undefined;
+
+  constructor() {
+    this.session = this.getSession();
+  }
 
   setSession(session: UserLoginResult | undefined) {
     if (session) {
       Cookies.set(UserLoginResultCookieName, JSON.stringify(session), {
         sameSite: "strict",
-        expires: session.tokens.refreshToken.expire,
+        expires: new Date(session.tokens.refreshToken.expire),
         secure: process.env.NODE_ENV === "production",
       });
     } else {
@@ -46,44 +50,6 @@ class SessionStorage {
     this.observers.forEach((func) => func(session));
   }
 
-  private async refreshOrGetToken() {
-    const session = this.session;
-
-    if (!session) {
-      return undefined;
-    }
-
-    const {
-      tokens: { authToken, refreshToken },
-    } = session;
-
-    if (authToken.expire > Date.now()) {
-      return authToken.value;
-    }
-
-    try {
-      const { data } = await authService.post<TokenResultWithRoles>(
-        "auth/login",
-        {},
-        { headers: { refreshToken: refreshToken.value } }
-      );
-
-      const newSession = {
-        tokens: {
-          refreshToken: session.tokens.refreshToken,
-          authToken: { expire: data.expire, value: data.value },
-        },
-        userData: { ...session.userData, roles: data.roles },
-      };
-
-      this.setSession(newSession);
-      return this.session?.tokens.authToken.value;
-    } catch (error) {
-      this.setSession(undefined);
-      return undefined;
-    }
-  }
-
   private getSession() {
     const session = Cookies.get(UserLoginResultCookieName);
 
@@ -94,13 +60,54 @@ class SessionStorage {
     return JSON.parse(session) as UserLoginResult;
   }
 
+  private refreshOrGetToken(getSession: () => UserLoginResult | undefined) {
+    return async () => {
+      const session = getSession();
+
+      if (!session) {
+        return undefined;
+      }
+
+      const {
+        tokens: { authToken, refreshToken },
+      } = session;
+
+      if (authToken.expire > Date.now()) {
+        return authToken.value;
+      }
+
+      try {
+        const { data } = await authService.post<TokenResultWithRoles>(
+          "auth/refresh",
+          {},
+          { headers: { refreshToken: refreshToken.value } }
+        );
+
+        const newSession = {
+          tokens: {
+            refreshToken: session.tokens.refreshToken,
+            authToken: { expire: data.expire, value: data.value },
+          },
+          userData: { ...session.userData, roles: data.roles },
+        };
+
+        this.setSession(newSession);
+        return this.session?.tokens.authToken.value;
+      } catch (error) {
+        this.setSession(undefined);
+        return undefined;
+      }
+    };
+  }
+
   getUserSession() {
     const session = this.session;
     if (!session) {
       return undefined;
     }
+
     const sessionData: UserSession = {
-      getToken: this.refreshOrGetToken,
+      getToken: this.refreshOrGetToken(this.getSession),
       userData: session.userData,
     };
 
