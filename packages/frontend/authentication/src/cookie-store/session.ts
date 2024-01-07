@@ -68,7 +68,6 @@ class SessionStorage {
         return undefined;
       }
 
-      console.log({ session2: session });
       const {
         tokens: { authToken, refreshToken },
       } = session;
@@ -76,7 +75,6 @@ class SessionStorage {
       if (authToken.expire > Date.now()) {
         return authToken.value;
       }
-      console.log({ session });
       try {
         const { data } = await authService.post<TokenResultWithRoles>(
           "auth/refresh",
