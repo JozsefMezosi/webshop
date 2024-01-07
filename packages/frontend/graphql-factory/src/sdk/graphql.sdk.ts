@@ -2086,6 +2086,14 @@ export type Resolvers<ContextType = any> = {
 };
 
 
+export type AddImageToProductMutationVariables = Exact<{
+  id: Scalars['ID']['input'];
+  newImageUrl: Scalars['String']['input'];
+}>;
+
+
+export type AddImageToProductMutation = { __typename?: 'Mutation', updateProducts: { __typename?: 'UpdateProductsMutationResponse', products: Array<{ __typename?: 'Product', imageUrls: Array<string> }> } };
+
 export type CreateProductMutationVariables = Exact<{
   name: Scalars['String']['input'];
   description: Scalars['String']['input'];
@@ -2097,7 +2105,24 @@ export type CreateProductMutationVariables = Exact<{
 
 export type CreateProductMutation = { __typename?: 'Mutation', createProducts: { __typename?: 'CreateProductsMutationResponse', products: Array<{ __typename?: 'Product', id: string, description: string, details?: Record<string, string> | null, imageUrls: Array<string>, name: string, priceInEuro: number }> } };
 
+export type GetProductQueryVariables = Exact<{
+  id: Scalars['ID']['input'];
+  options?: InputMaybe<ProductOptions>;
+}>;
 
+
+export type GetProductQuery = { __typename?: 'Query', products: Array<{ __typename?: 'Product', description: string, details?: Record<string, string> | null, id: string, imageUrls: Array<string>, name: string, priceInEuro: number }> };
+
+
+export const AddImageToProductDocument = gql`
+    mutation addImageToProduct($id: ID!, $newImageUrl: String!) {
+  updateProducts(where: {id: $id}, update: {imageUrls_PUSH: [$newImageUrl]}) {
+    products {
+      imageUrls
+    }
+  }
+}
+    `;
 export const CreateProductDocument = gql`
     mutation createProduct($name: String!, $description: String!, $details: Object, $imageUrls: [String!]!, $priceInEuro: Float!) {
   createProducts(
@@ -2114,6 +2139,18 @@ export const CreateProductDocument = gql`
   }
 }
     `;
+export const GetProductDocument = gql`
+    query getProduct($id: ID!, $options: ProductOptions) {
+  products(where: {id: $id}, options: $options) {
+    description
+    details
+    id
+    imageUrls
+    name
+    priceInEuro
+  }
+}
+    `;
 
 export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string, operationType?: string, variables?: any) => Promise<T>;
 
@@ -2122,8 +2159,14 @@ const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationTy
 
 export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
   return {
+    addImageToProduct(variables: AddImageToProductMutationVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<AddImageToProductMutation> {
+      return withWrapper((wrappedRequestHeaders) => client.request<AddImageToProductMutation>(AddImageToProductDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'addImageToProduct', 'mutation', variables);
+    },
     createProduct(variables: CreateProductMutationVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<CreateProductMutation> {
       return withWrapper((wrappedRequestHeaders) => client.request<CreateProductMutation>(CreateProductDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'createProduct', 'mutation', variables);
+    },
+    getProduct(variables: GetProductQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetProductQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetProductQuery>(GetProductDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getProduct', 'query', variables);
     }
   };
 }

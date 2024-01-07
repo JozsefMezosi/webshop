@@ -1,0 +1,10 @@
+query getProduct($id: ID!, $options: ProductOptions) {
+  products(where: { id: $id }, options: $options) {
+    description
+    details
+    id
+    imageUrls
+    name
+    priceInEuro
+  }
+}

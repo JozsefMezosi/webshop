@@ -1,0 +1,10 @@
+mutation addImageToProduct($id: ID!, $newImageUrl: String!) {
+  updateProducts(
+    where: { id: $id }
+    update: { imageUrls_PUSH: [$newImageUrl] }
+  ) {
+    products {
+      imageUrls
+    }
+  }
+}
