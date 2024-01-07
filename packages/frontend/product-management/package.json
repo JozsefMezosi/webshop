@@ -18,9 +18,12 @@
   },
   "dependencies": {
     "@frontend/form-components": "workspace:1.0.0",
+    "@frontend/graphql-client": "workspace:^1.0.0",
     "@frontend/graphql-models": "workspace:1.0.0",
+    "@frontend/toast-context": "workspace:1.0.0",
     "@heroicons/react": "2.1.1",
     "@nanostores/react": "^0.7.1",
+    "@vercel/blob": "0.16.1",
     "nanostores": "^0.9.5",
     "next": "14.0.3",
     "react": "18.2.0",

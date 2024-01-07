@@ -116,6 +116,7 @@ importers:
 
   apps/web:
     specifiers:
+      '@common/http-status-codes': workspace:1.0.0
       '@common/user-model': workspace:*
       '@config/eslint-config': workspace:*
       '@config/tailwind-config': workspace:*
@@ -135,6 +136,7 @@ importers:
       '@types/node': 20.10.5
       '@types/react': 18.0.2
       '@types/react-dom': 18.0.2
+      '@vercel/blob': 0.16.1
       autoprefixer: 10.4.16
       axios: 1.6.2
       eslint: 8.53.0
@@ -148,6 +150,7 @@ importers:
       tailwindcss: 3.4.0
       typescript: 5.3.3
     dependencies:
+      '@common/http-status-codes': link:../../packages/common/http-status-codes
       '@common/user-model': link:../../packages/common/user-model
       '@emotion/react': 11.11.1_z4nlbosket4bvhe4v4om5c6scu
       '@emotion/styled': 11.11.0_ydn2erfhrvrlc2jn3xvhuakxly
@@ -159,6 +162,7 @@ importers:
       '@frontend/product-management': link:../../packages/frontend/product-management
       '@frontend/toast-context': link:../../packages/frontend/toast-context
       '@heroicons/react': 2.1.1_react@18.2.0
+      '@vercel/blob': 0.16.1
       axios: 1.6.2
       next: 14.0.3_2sxiyfzeap2fgw7t7svnurc6pi
       react: 18.2.0
@@ -490,13 +494,16 @@ importers:
     specifiers:
       '@config/eslint-config': workspace:*
       '@frontend/form-components': workspace:1.0.0
+      '@frontend/graphql-client': workspace:^1.0.0
       '@frontend/graphql-models': workspace:1.0.0
+      '@frontend/toast-context': workspace:1.0.0
       '@heroicons/react': 2.1.1
       '@nanostores/react': ^0.7.1
       '@repo/typescript-config': workspace:*
       '@types/node': 20.10.5
       '@types/react': 18.0.2
       '@types/react-dom': 18.0.2
+      '@vercel/blob': 0.16.1
       nanostores: ^0.9.5
       next: 14.0.3
       react: 18.2.0
@@ -505,9 +512,12 @@ importers:
       typescript: 5.3.3
     dependencies:
       '@frontend/form-components': link:../form-components
+      '@frontend/graphql-client': link:../graphql-client
       '@frontend/graphql-models': link:../graphql-models
+      '@frontend/toast-context': link:../toast-context
       '@heroicons/react': 2.1.1_react@18.2.0
       '@nanostores/react': 0.7.1_f7bn66ljxqyv426n5eme7tizfy
+      '@vercel/blob': 0.16.1
       nanostores: 0.9.5
       next: 14.0.3_biqbaboplfbrettd7655fr4n2y
       react: 18.2.0
@@ -1797,6 +1807,11 @@ packages:
     resolution: {integrity: sha512-Kn7K8dx/5U6+cT1yEhpX1w4PCSg0M+XyRILPgvwcEBjerFWCwQj5sbr3/VmxqV0JGHCBCzyd6LxypEuehypY1w==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
+
+  /@fastify/busboy/2.1.0:
+    resolution: {integrity: sha512-+KpH+QxZU7O4675t3mnkQKcZZg56u+K/Ct2K+N2AZYNVK8kyeo/bI18tI8aPm3tvNNRyTWfj6s5tnGNlcbQRsA==}
+    engines: {node: '>=14'}
+    dev: false
 
   /@graphql-codegen/cli/5.0.0_k3bkv2522brqvieaxnfuf5l6qm:
     resolution: {integrity: sha512-A7J7+be/a6e+/ul2KI5sfJlpoqeqwX8EzktaKCeduyVKgOLA6W5t+NUGf6QumBDXU8PEOqXk3o3F+RAwCWOiqA==}
@@ -3394,6 +3409,13 @@ packages:
   /@ungap/structured-clone/1.2.0:
     resolution: {integrity: sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==}
     dev: true
+
+  /@vercel/blob/0.16.1:
+    resolution: {integrity: sha512-GKslL5l/Jx8OBHRunBYsiWmbMxjvy7LRtOcN7czw7vV4c1Z4vGy8NYTd6RdJt08OKC2wHC28LDssdfVNLrzp+w==}
+    engines: {node: '>=16.14'}
+    dependencies:
+      undici: 5.28.2
+    dev: false
 
   /@vercel/style-guide/5.1.0_tolssun75lgmucziqeyfjtngaq:
     resolution: {integrity: sha512-L9lWYePIycm7vIOjDLj+mmMdmmPkW3/brHjgq+nJdvMOrL7Hdk/19w8X583HYSk0vWsq494o5Qkh6x5+uW7ljg==}
@@ -9857,6 +9879,13 @@ packages:
 
   /undici-types/5.26.5:
     resolution: {integrity: sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA==}
+
+  /undici/5.28.2:
+    resolution: {integrity: sha512-wh1pHJHnUeQV5Xa8/kyQhO7WFa8M34l026L5P/+2TYiakvGy5Rdc8jWZVyG7ieht/0WgJLEd3kcU5gKx+6GC8w==}
+    engines: {node: '>=14.0'}
+    dependencies:
+      '@fastify/busboy': 2.1.0
+    dev: false
 
   /universalify/0.1.2:
     resolution: {integrity: sha512-rBJeI5CXAlmy1pV+617WB9J63U6XcazHHF2f2dbJix4XzpUF0RS3Zbj0FGIOCAva5P/d/GBOYaACQ1w+0azUkg==}
