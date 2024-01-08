@@ -2113,6 +2113,14 @@ export type GetProductQueryVariables = Exact<{
 
 export type GetProductQuery = { __typename?: 'Query', products: Array<{ __typename?: 'Product', description: string, details?: Record<string, string> | null, id: string, imageUrls: Array<string>, name: string, priceInEuro: number }> };
 
+export type SetImagesOnProductMutationVariables = Exact<{
+  id: Scalars['ID']['input'];
+  imageUrls: Array<Scalars['String']['input']> | Scalars['String']['input'];
+}>;
+
+
+export type SetImagesOnProductMutation = { __typename?: 'Mutation', updateProducts: { __typename?: 'UpdateProductsMutationResponse', products: Array<{ __typename?: 'Product', id: string }> } };
+
 
 export const AddImageToProductDocument = gql`
     mutation addImageToProduct($id: ID!, $newImageUrl: String!) {
@@ -2151,6 +2159,15 @@ export const GetProductDocument = gql`
   }
 }
     `;
+export const SetImagesOnProductDocument = gql`
+    mutation setImagesOnProduct($id: ID!, $imageUrls: [String!]!) {
+  updateProducts(where: {id: $id}, update: {imageUrls: $imageUrls}) {
+    products {
+      id
+    }
+  }
+}
+    `;
 
 export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string, operationType?: string, variables?: any) => Promise<T>;
 
@@ -2167,6 +2184,9 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
     },
     getProduct(variables: GetProductQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetProductQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<GetProductQuery>(GetProductDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getProduct', 'query', variables);
+    },
+    setImagesOnProduct(variables: SetImagesOnProductMutationVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<SetImagesOnProductMutation> {
+      return withWrapper((wrappedRequestHeaders) => client.request<SetImagesOnProductMutation>(SetImagesOnProductDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'setImagesOnProduct', 'mutation', variables);
     }
   };
 }

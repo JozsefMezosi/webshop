@@ -1,0 +1,7 @@
+mutation setImagesOnProduct($id: ID!, $imageUrls: [String!]!) {
+  updateProducts(where: { id: $id }, update: { imageUrls: $imageUrls }) {
+    products {
+      id
+    }
+  }
+}
