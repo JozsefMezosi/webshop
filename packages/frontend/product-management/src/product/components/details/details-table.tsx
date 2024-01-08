@@ -1,13 +1,16 @@
 import { Button } from "@frontend/form-components";
 import { PlusIcon } from "@heroicons/react/24/outline";
-import { addDetail } from "./store/services/add-detail";
 import { useStore } from "@nanostores/react";
 import { $details } from "./store/details.store";
+import { useModal } from "@frontend/modal-context";
+import { ADD_DETAIL_HEADER, AddDetailFrom } from "./add-detail-form";
 
 export const DetailsTable = () => {
   const details = useStore($details);
-  const handleAddDetail = () =>
-    addDetail({ detailDescription: "test", detailName: Date.now().toString() });
+  const modal = useModal();
+  const handleAddDetail = () => {
+    modal.show(<AddDetailFrom />, ADD_DETAIL_HEADER);
+  };
   return (
     <div className="col-span-3">
       <div className="p-2">
