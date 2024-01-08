@@ -18,8 +18,9 @@ export const addProjectToNextConfig = ({
     encoding: "utf8",
   })
     .replaceAll("\n", "")
-    .replaceAll("transpilePackages:", '"transpilePackages":')
-    .replaceAll(",};", "}");
+    .replaceAll(";", "")
+    .replaceAll(/(['"])?([a-z0-9A-Z_]+)(['"])?:/g, '"$2": ')
+    .replaceAll(/,(?!\s*?[{["'\w])/g, "");
 
   const nextConfig: { transpilePackages: string[] } = JSON.parse(
     nextConfigAsString
