@@ -46,7 +46,7 @@ export const ModalContainer: FunctionComponent<ModalContainerProps> = ({
           onClick={handleClose}
         >
           <div
-            className="fixed max-w-1/2 w-1/2 h-1/2 bg-white rounded-lg p-4"
+            className="fixed max-w-1/2 min-w-[30rem] bg-white rounded-lg p-4"
             onClick={prevent}
           >
             <div
