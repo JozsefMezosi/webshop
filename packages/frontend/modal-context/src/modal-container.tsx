@@ -5,7 +5,6 @@ import {
   useCallback,
   useMemo,
   useState,
-  MouseEvent,
   MouseEventHandler,
 } from "react";
 import { ModalContext } from "./modal-context";
@@ -37,7 +36,7 @@ export const ModalContainer: FunctionComponent<ModalContainerProps> = ({
       close: handleClose,
       show: handleOpen,
     }),
-    []
+    [handleClose]
   );
   return (
     <ModalContext.Provider value={modelContextValue}>
