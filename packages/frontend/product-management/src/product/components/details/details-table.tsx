@@ -1,8 +1,8 @@
 import { Button } from "@frontend/form-components";
 import { PlusIcon } from "@heroicons/react/24/outline";
-import { addDetail } from "../store/details/services/add-detail";
+import { addDetail } from "./store/services/add-detail";
 import { useStore } from "@nanostores/react";
-import { $details } from "../store/details/details.store";
+import { $details } from "./store/details.store";
 
 export const DetailsTable = () => {
   const details = useStore($details);

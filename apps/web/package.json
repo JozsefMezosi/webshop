@@ -17,6 +17,7 @@
     "@frontend/authentication-view": "workspace:*",
     "@frontend/form-components": "workspace:*",
     "@frontend/graphql-client": "workspace:*",
+    "@frontend/graphql-server": "workspace:1.0.0",
     "@frontend/product-management": "workspace:*",
     "@frontend/toast-context": "workspace:*",
     "@heroicons/react": "2.1.1",

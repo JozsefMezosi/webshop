@@ -9,4 +9,13 @@ module.exports = {
     "@frontend/graphql-client",
     "@frontend/product-management",
   ],
+  images: {
+    minimumCacheTTL: 60,
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "j0dkae8vdhvgqooh.public.blob.vercel-storage.com",
+      },
+    ],
+  },
 };

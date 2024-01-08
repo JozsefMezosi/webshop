@@ -1,13 +1,10 @@
 import { ButtonHTMLAttributes, FunctionComponent, ReactElement } from "react";
 import cl from "classnames";
-interface ButtonProps {
-  type: ButtonHTMLAttributes<HTMLButtonElement>["type"];
+type ButtonProps = {
   text: string;
-  className?: string;
   secondary?: boolean;
   icon?: ReactElement;
-  onClick?: () => void;
-}
+} & ButtonHTMLAttributes<HTMLButtonElement>;
 
 export const Button: FunctionComponent<ButtonProps> = ({
   type,
@@ -26,7 +23,7 @@ export const Button: FunctionComponent<ButtonProps> = ({
       className
     )}
   >
-    {icon && <div className="w-6 *:text-gray-500">{icon}</div>}
+    {icon && <div className="max-w-6 *:text-gray-500">{icon}</div>}
     <p>{text}</p>
   </button>
 );
