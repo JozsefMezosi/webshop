@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { ToastContainer } from "@frontend/toast-context";
 import { Navbar } from "../components/navbar/navbar";
+import { ModalContainer } from "@frontend/modal-context";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -19,8 +20,10 @@ export default async function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <ToastContainer>
-          <Navbar />
-          <div className="pt-16 px-5">{children}</div>
+          <ModalContainer>
+            <Navbar />
+            <div className="pt-16 px-5">{children}</div>
+          </ModalContainer>
         </ToastContainer>
       </body>
     </html>

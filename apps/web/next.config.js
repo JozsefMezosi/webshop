@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 module.exports = {
-  transpilePackages: [
+  "transpilePackages": [
     "@frontend/form-components",
     "@frontend/authentication-view",
     "@frontend/authentication",
@@ -8,14 +8,15 @@ module.exports = {
     "@frontend/toast-context",
     "@frontend/graphql-client",
     "@frontend/product-management",
+    "@frontend/modal-context"
   ],
-  images: {
-    minimumCacheTTL: 60,
-    remotePatterns: [
+  "images": {
+    "minimumCacheTTL": 60,
+    "remotePatterns": [
       {
-        protocol: "https",
-        hostname: "j0dkae8vdhvgqooh.public.blob.vercel-storage.com",
-      },
-    ],
-  },
-};
+        "protocol": "https",
+        "hostname": "j0dkae8vdhvgqooh.public.blob.vercel-storage.com"
+      }
+    ]
+  }
+}
