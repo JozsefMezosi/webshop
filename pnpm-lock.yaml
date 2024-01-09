@@ -534,6 +534,7 @@ importers:
       '@frontend/graphql-client': workspace:^1.0.0
       '@frontend/graphql-models': workspace:1.0.0
       '@frontend/modal-context': workspace:^1.0.0
+      '@frontend/react-hooks': workspace:^1.0.0
       '@frontend/toast-context': workspace:1.0.0
       '@heroicons/react': 2.1.1
       '@nanostores/react': ^0.7.1
@@ -554,6 +555,7 @@ importers:
       '@frontend/graphql-client': link:../graphql-client
       '@frontend/graphql-models': link:../graphql-models
       '@frontend/modal-context': link:../modal-context
+      '@frontend/react-hooks': link:../react-hooks
       '@frontend/toast-context': link:../toast-context
       '@heroicons/react': 2.1.1_react@18.2.0
       '@nanostores/react': 0.7.1_f7bn66ljxqyv426n5eme7tizfy
@@ -570,6 +572,35 @@ importers:
       '@types/node': 20.10.5
       '@types/react': 18.0.2
       '@types/react-dom': 18.0.2
+      typescript: 5.3.3
+
+  packages/frontend/react-hooks:
+    specifiers:
+      '@config/eslint-config': workspace:*
+      '@repo/typescript-config': workspace:*
+      '@types/node': 20.10.5
+      '@types/react': 18.0.2
+      '@types/react-dom': 18.0.2
+      autoprefixer: 10.4.16
+      postcss: 8.4.32
+      react: 18.2.0
+      react-dom: 18.2.0
+      sass: 1.69.5
+      tailwind: 4.0.0
+      typescript: 5.3.3
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    devDependencies:
+      '@config/eslint-config': link:../../configs/eslint-config
+      '@repo/typescript-config': link:../../configs/typescript-config
+      '@types/node': 20.10.5
+      '@types/react': 18.0.2
+      '@types/react-dom': 18.0.2
+      autoprefixer: 10.4.16_postcss@8.4.32
+      postcss: 8.4.32
+      sass: 1.69.5
+      tailwind: 4.0.0
       typescript: 5.3.3
 
   packages/frontend/toast-context:

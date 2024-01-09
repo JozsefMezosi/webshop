@@ -2121,6 +2121,24 @@ export type SetImagesOnProductMutationVariables = Exact<{
 
 export type SetImagesOnProductMutation = { __typename?: 'Mutation', updateProducts: { __typename?: 'UpdateProductsMutationResponse', products: Array<{ __typename?: 'Product', id: string }> } };
 
+export type SetProductDetailsMutationVariables = Exact<{
+  id: Scalars['ID']['input'];
+  details?: InputMaybe<Scalars['Object']['input']>;
+}>;
+
+
+export type SetProductDetailsMutation = { __typename?: 'Mutation', updateProducts: { __typename?: 'UpdateProductsMutationResponse', products: Array<{ __typename?: 'Product', id: string }> } };
+
+export type UpdateProductMutationVariables = Exact<{
+  id: Scalars['ID']['input'];
+  name?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  priceInEuro?: InputMaybe<Scalars['Float']['input']>;
+}>;
+
+
+export type UpdateProductMutation = { __typename?: 'Mutation', updateProducts: { __typename?: 'UpdateProductsMutationResponse', products: Array<{ __typename?: 'Product', name: string, description: string, priceInEuro: number }> } };
+
 
 export const AddImageToProductDocument = gql`
     mutation addImageToProduct($id: ID!, $newImageUrl: String!) {
@@ -2168,6 +2186,29 @@ export const SetImagesOnProductDocument = gql`
   }
 }
     `;
+export const SetProductDetailsDocument = gql`
+    mutation setProductDetails($id: ID!, $details: Object) {
+  updateProducts(where: {id: $id}, update: {details: $details}) {
+    products {
+      id
+    }
+  }
+}
+    `;
+export const UpdateProductDocument = gql`
+    mutation updateProduct($id: ID!, $name: String, $description: String, $priceInEuro: Float) {
+  updateProducts(
+    where: {id: $id}
+    update: {name: $name, description: $description, priceInEuro: $priceInEuro}
+  ) {
+    products {
+      name
+      description
+      priceInEuro
+    }
+  }
+}
+    `;
 
 export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string, operationType?: string, variables?: any) => Promise<T>;
 
@@ -2187,6 +2228,12 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
     },
     setImagesOnProduct(variables: SetImagesOnProductMutationVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<SetImagesOnProductMutation> {
       return withWrapper((wrappedRequestHeaders) => client.request<SetImagesOnProductMutation>(SetImagesOnProductDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'setImagesOnProduct', 'mutation', variables);
+    },
+    setProductDetails(variables: SetProductDetailsMutationVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<SetProductDetailsMutation> {
+      return withWrapper((wrappedRequestHeaders) => client.request<SetProductDetailsMutation>(SetProductDetailsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'setProductDetails', 'mutation', variables);
+    },
+    updateProduct(variables: UpdateProductMutationVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<UpdateProductMutation> {
+      return withWrapper((wrappedRequestHeaders) => client.request<UpdateProductMutation>(UpdateProductDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'updateProduct', 'mutation', variables);
     }
   };
 }

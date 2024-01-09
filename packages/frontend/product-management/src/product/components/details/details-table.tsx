@@ -5,13 +5,15 @@ import { $details } from "./store/details.store";
 import { useModal } from "@frontend/modal-context";
 import { ADD_DETAIL_HEADER, AddDetailFrom } from "./add-detail-form";
 import { Detail } from "./detail/detail";
+import { useCallback } from "react";
 
 export const DetailsTable = () => {
   const details = useStore($details);
   const modal = useModal();
-  const handleAddDetail = () => {
+  const handleAddDetail = useCallback(() => {
     modal.show(<AddDetailFrom />, ADD_DETAIL_HEADER);
-  };
+  }, [modal]);
+
   return (
     <div className="col-span-3">
       <div className="p-2">

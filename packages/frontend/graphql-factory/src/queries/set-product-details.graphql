@@ -1,0 +1,7 @@
+mutation setProductDetails($id: ID!, $details: Object) {
+  updateProducts(where: { id: $id }, update: { details: $details }) {
+    products {
+      id
+    }
+  }
+}

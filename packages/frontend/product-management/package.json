@@ -21,6 +21,7 @@
     "@frontend/graphql-client": "workspace:^1.0.0",
     "@frontend/graphql-models": "workspace:1.0.0",
     "@frontend/modal-context": "workspace:^1.0.0",
+    "@frontend/react-hooks": "workspace:^1.0.0",
     "@frontend/toast-context": "workspace:1.0.0",
     "@heroicons/react": "2.1.1",
     "@nanostores/react": "^0.7.1",

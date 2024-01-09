@@ -1,29 +1,15 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, useCallback } from "react";
 import { Detail as DetailProps } from "../model/detail.model";
 import { XMarkIcon } from "@heroicons/react/24/solid";
-import { $details } from "../store/details.store";
+import { removeDetail } from "../store/services/remove-details";
 export const Detail: FunctionComponent<DetailProps> = ({
   detailDescription,
   detailName,
 }) => {
-  const onDetailDelete = () => {
-    const details = $details.get();
-    if (!details) {
-      return;
-    }
+  const onDetailDelete = useCallback(() => {
+    removeDetail(detailName);
+  }, [detailName]);
 
-    const newDetails = Object.entries(details).reduce(
-      (result, [name, description]) => {
-        if (detailName === name) {
-          return result;
-        }
-        return { ...result, [name]: description };
-      },
-      {}
-    );
-
-    $details.set(newDetails);
-  };
   return (
     <div className="grid grid-cols-12 border-b-2 py-2" key={detailName}>
       <h2 className="col-span-5">{detailName}</h2>
