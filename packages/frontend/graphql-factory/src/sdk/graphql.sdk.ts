@@ -2105,6 +2105,13 @@ export type CreateProductMutationVariables = Exact<{
 
 export type CreateProductMutation = { __typename?: 'Mutation', createProducts: { __typename?: 'CreateProductsMutationResponse', products: Array<{ __typename?: 'Product', id: string, description: string, details?: Record<string, string> | null, imageUrls: Array<string>, name: string, priceInEuro: number }> } };
 
+export type DeleteProductMutationVariables = Exact<{
+  id: Scalars['ID']['input'];
+}>;
+
+
+export type DeleteProductMutation = { __typename?: 'Mutation', deleteProducts: { __typename?: 'DeleteInfo', nodesDeleted: number } };
+
 export type GetProductQueryVariables = Exact<{
   id: Scalars['ID']['input'];
   options?: InputMaybe<ProductOptions>;
@@ -2165,6 +2172,13 @@ export const CreateProductDocument = gql`
   }
 }
     `;
+export const DeleteProductDocument = gql`
+    mutation deleteProduct($id: ID!) {
+  deleteProducts(where: {id: $id}) {
+    nodesDeleted
+  }
+}
+    `;
 export const GetProductDocument = gql`
     query getProduct($id: ID!, $options: ProductOptions) {
   products(where: {id: $id}, options: $options) {
@@ -2222,6 +2236,9 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
     },
     createProduct(variables: CreateProductMutationVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<CreateProductMutation> {
       return withWrapper((wrappedRequestHeaders) => client.request<CreateProductMutation>(CreateProductDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'createProduct', 'mutation', variables);
+    },
+    deleteProduct(variables: DeleteProductMutationVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<DeleteProductMutation> {
+      return withWrapper((wrappedRequestHeaders) => client.request<DeleteProductMutation>(DeleteProductDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'deleteProduct', 'mutation', variables);
     },
     getProduct(variables: GetProductQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetProductQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<GetProductQuery>(GetProductDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getProduct', 'query', variables);

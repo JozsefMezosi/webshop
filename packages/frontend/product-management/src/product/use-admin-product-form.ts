@@ -9,6 +9,11 @@ import { $isCreate, $isLoading, $product } from "./store/product.store";
 import { useForm } from "react-hook-form";
 import { useDebounce } from "../../../react-hooks/src";
 
+export type HandleInputChanged = (
+  field: keyof CreateProduct,
+  parser?: (value: string) => unknown
+) => (e: ChangeEvent<HTMLInputElement>) => void;
+
 export const useAdminProductForm = (product: Product | undefined) => {
   const {
     register,
@@ -87,15 +92,13 @@ export const useAdminProductForm = (product: Product | undefined) => {
   };
   const debouncedProductUpdate = useDebounce(handleProductChange);
 
-  const handleInputChange =
-    (field: keyof CreateProduct, parser?: (value: string) => unknown) =>
-    (e: ChangeEvent<HTMLInputElement>) => {
-      if (!$isCreate.get()) {
-        console.log(e);
+  const handleInputChange: HandleInputChanged = (field, parser) => (e) => {
+    if (!$isCreate.get()) {
+      console.log(e);
 
-        debouncedProductUpdate(field, e.target.value, parser);
-      }
-    };
+      debouncedProductUpdate(field, e.target.value, parser);
+    }
+  };
 
   return { register, handleSubmit, errors, onSubmit, handleInputChange };
 };
