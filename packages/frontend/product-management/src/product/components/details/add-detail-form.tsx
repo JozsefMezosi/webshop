@@ -18,6 +18,7 @@ export const AddDetailFrom = () => {
   const toast = useToast();
   const { register, handleSubmit } = useForm<Detail>();
   const getGraphQlClient = useGraphqlClient();
+
   const onSubmit = useCallback(
     async (data: Detail) => {
       addDetail(data);

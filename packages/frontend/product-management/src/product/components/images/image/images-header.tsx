@@ -49,8 +49,6 @@ export const ImagesHeader = () => {
           });
           $imageUrls.set([...($imageUrls.get() || []), imageUrls[0]]);
         } catch (error) {
-          console.log({ error });
-
           if (error instanceof Error) {
             toast.error(error.message);
           }

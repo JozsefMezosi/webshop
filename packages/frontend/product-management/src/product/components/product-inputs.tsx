@@ -2,18 +2,17 @@ import { Input, TextArea } from "@frontend/form-components";
 import { CreateProduct } from "@frontend/graphql-models";
 import { FunctionComponent } from "react";
 import { FieldErrors, UseFormRegister } from "react-hook-form";
-import { HandleInputChanged } from "../use-admin-product-form";
+import { useHandleInputChange } from "../hooks/use-handle-input-changed";
 
 interface ProductInputs {
   register: UseFormRegister<CreateProduct>;
   errors: FieldErrors<CreateProduct>;
-  handleInputChange: HandleInputChanged;
 }
 export const ProductInputs: FunctionComponent<ProductInputs> = ({
   register,
   errors,
-  handleInputChange,
 }) => {
+  const handleInputChange = useHandleInputChange();
   return (
     <div className="gap-4 grid grid-cols-12 col-span-3">
       <Input

@@ -2,7 +2,7 @@
 import { Product } from "@frontend/graphql-models";
 import { DetailsTable } from "./components/details/details-table";
 import { FunctionComponent } from "react";
-import { useAdminProductForm } from "./use-admin-product-form";
+import { useAdminProductForm } from "./hooks/use-admin-product-form";
 import { Images } from "./components/images/images";
 import { DeleteButton } from "./components/delete-button/delete-button";
 import { CreateProductButton } from "./components/create-product-button";
@@ -17,7 +17,7 @@ export const AdminProductPage: FunctionComponent<AdminProductPageProps> = ({
 }) => {
   const isCreate = !product;
   initStore(product);
-  const { errors, handleSubmit, onSubmit, register, handleInputChange } =
+  const { errors, handleSubmit, onSubmit, register } =
     useAdminProductForm(product);
 
   return (
@@ -26,11 +26,7 @@ export const AdminProductPage: FunctionComponent<AdminProductPageProps> = ({
         className="grid grid-cols-3 justify-center gap-5 py-12 max-w-[90rem] mx-auto"
         onSubmit={handleSubmit(onSubmit)}
       >
-        <ProductInputs
-          register={register}
-          errors={errors}
-          handleInputChange={handleInputChange}
-        />
+        <ProductInputs register={register} errors={errors} />
         <DetailsTable />
         <Images />
         {isCreate ? <CreateProductButton /> : <DeleteButton />}

@@ -8,7 +8,8 @@ export const useHandleProductDelete = () => {
   const toast = useToast();
   const getGraphqlClient = useGraphqlClient();
   const router = useRouter();
-  return useCallback(async () => {
+
+  const handleProductChange = useCallback(async () => {
     const product = $product.get();
     if (!product) {
       return;
@@ -25,4 +26,6 @@ export const useHandleProductDelete = () => {
       );
     }
   }, [getGraphqlClient, router, toast]);
+
+  return handleProductChange;
 };
